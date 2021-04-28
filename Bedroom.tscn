@@ -83,18 +83,3 @@ collision_mask = 3
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
 smoothing_enabled = true
-
-[node name="Closet2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 60, 14 )
-
-[node name="Bed2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 85.8119, 53.3732 )
-
-[node name="Bed3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 70.2965, 53.718 )
-
-[node name="Bed4" parent="." instance=ExtResource( 3 )]
-position = Vector2( 85.4671, 37.8578 )
-
-[node name="Bed5" parent="." instance=ExtResource( 3 )]
-position = Vector2( 69.9517, 38.375 )
