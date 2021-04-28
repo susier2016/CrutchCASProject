@@ -29,11 +29,13 @@ func _physics_process(delta):
 			animationState.travel("Run")
 			velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
 			direction_vector = input_vector * 10
-
+			if walking.playing == false:
+				walking.play()
 		else: 
 			animationState.travel("Idle")
 			#facing_interactable = rayCast.is_colliding()
 			velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
+			walking.stop()
 		
 		velocity = move_and_slide(velocity)
 
