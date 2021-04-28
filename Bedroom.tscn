@@ -79,7 +79,7 @@ position = Vector2( 24, 16 )
 
 [node name="BedroomMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
-volume_db = -20.0
+volume_db = -15.0
 autoplay = true
 __meta__ = {
 "_editor_description_": "bedroom music"
@@ -96,4 +96,4 @@ smoothing_enabled = true
 
 [node name="Walking" type="AudioStreamPlayer" parent="Player"]
 stream = ExtResource( 10 )
-volume_db = -10.0
+volume_db = -20.0
