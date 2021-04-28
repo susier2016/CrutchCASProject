@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://TrophyCase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Desk.tscn" type="PackedScene" id=2]
@@ -8,7 +8,6 @@
 [ext_resource path="res://Dresser.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Room/woodtile1.png" type="Texture" id=7]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=8]
-[ext_resource path="res://IMG_7875.JPG" type="Texture" id=9]
 
 [sub_resource type="TileSet" id=1]
 0/name = "walls.png 0"
@@ -85,8 +84,5 @@ collision_mask = 3
 current = true
 smoothing_enabled = true
 
-[node name="IMG_7875" type="Sprite" parent="."]
-position = Vector2( 75.774, 163.686 )
-scale = Vector2( 0.175403, 0.156404 )
-z_index = -2
-texture = ExtResource( 9 )
+[node name="Closet2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 61, 14 )
