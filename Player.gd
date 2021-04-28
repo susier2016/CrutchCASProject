@@ -1,4 +1,5 @@
-# SUSIE - TESTING COMMITS
+# SUSIE - Testing commits
+
 extends KinematicBody2D
 	
 const ACCELERATION = 100
@@ -8,7 +9,7 @@ const FRICTION = 400
 var velocity = Vector2.ZERO
 var frozen = false
 var direction_vector
-#hi shordy exceptnthis time its really sad please work
+
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
