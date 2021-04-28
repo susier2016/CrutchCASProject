@@ -39,14 +39,13 @@ func _physics_process(delta):
 		
 		velocity = move_and_slide(velocity)
 
-func _on_ContextBubble_area_entered(area: Area2D)->void:
-	#print(str(area))
-	if area.has_method("interaction_interact"):
+func _on_ContextBubble_area_entered(area: Area2D) -> void:
+	if area.has_method("interact"):
 		print("player: interactable")
-		emit_signal("interactable", true, area.interaction_interact())
+		emit_signal("interactable", true, area.interact())
 
-func _on_ContextBubble_area_exited(area: Area2D)->void:
+func _on_ContextBubble_area_exited(area):
 	emit_signal("interactable", false, null)
-
-func _on_DialogueBox_freeze_character(isFrozen):
-	frozen = isFrozen
+	
+#func _on_DialogueBox_freeze_character(isFrozen):
+#	frozen = isFrozen

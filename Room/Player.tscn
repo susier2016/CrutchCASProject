@@ -1,7 +1,8 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Player/Player.png" type="Texture" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
+[ext_resource path="res://Room/PlayerInteract.gd" type="Script" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 2.0
@@ -205,12 +206,13 @@ start_node = "Idle"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=23]
 
+[sub_resource type="CircleShape2D" id=24]
+radius = 2.0
+
 [node name="Player" type="KinematicBody2D"]
-position = Vector2( 3.76154, 1.35415 )
+position = Vector2( 0, -2 )
+collision_mask = 3
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( -1, 0 )
@@ -242,3 +244,12 @@ active = true
 parameters/playback = SubResource( 23 )
 parameters/Idle/blend_position = Vector2( -0.345187, 0.484979 )
 parameters/Run/blend_position = Vector2( 0.270386, -0.733906 )
+
+[node name="ContextBubble" type="Area2D" parent="."]
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ContextBubble"]
+position = Vector2( 0, 5 )
+shape = SubResource( 24 )
+[connection signal="area_entered" from="ContextBubble" to="." method="_on_ContextBubble_area_entered"]
+[connection signal="area_exited" from="ContextBubble" to="." method="_on_ContextBubble_area_exited"]
