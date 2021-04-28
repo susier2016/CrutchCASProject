@@ -1,7 +1,5 @@
-# SUSIE - Testing commits
-
 extends KinematicBody2D
-	
+
 const ACCELERATION = 100
 const MAX_SPEED = 15
 const FRICTION = 400
@@ -12,6 +10,7 @@ var direction_vector
 
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
+onready var walking = $Walking
 onready var animationState = animationTree.get("parameters/playback")
 export var interaction_parent : NodePath
 
@@ -29,8 +28,8 @@ func _physics_process(delta):
 			animationTree.set("parameters/Run/blend_position", input_vector)
 			animationState.travel("Run")
 			velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
-		
 			direction_vector = input_vector * 10
+
 		else: 
 			animationState.travel("Idle")
 			#facing_interactable = rayCast.is_colliding()

@@ -8,7 +8,7 @@
 [ext_resource path="res://Dresser.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Room/woodtile1.png" type="Texture" id=7]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Meek Cameo.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Room/Home (Night Ver.).wav" type="AudioStream" id=9]
 
 [sub_resource type="TileSet" id=1]
 0/name = "walls.png 0"
@@ -39,7 +39,7 @@
 position = Vector2( 30, 10 )
 
 [node name="Floor" type="Sprite" parent="."]
-position = Vector2( 48, 32 )
+position = Vector2( 47.5177, 32 )
 texture = ExtResource( 7 )
 region_enabled = true
 region_rect = Rect2( -32, 0, 96, 64 )
@@ -76,12 +76,16 @@ position = Vector2( 88, 14 )
 [node name="Dresser" parent="." instance=ExtResource( 6 )]
 position = Vector2( 24, 16 )
 
-[node name="Screen Shot 2021-04-28 at 113637 AM" parent="." instance=ExtResource( 9 )]
-position = Vector2( 60.5739, 129.461 )
-z_index = -1
+[node name="BedroomMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -20.0
+autoplay = true
+__meta__ = {
+"_editor_description_": "bedroom music"
+}
 
 [node name="Player" parent="." instance=ExtResource( 8 )]
-position = Vector2( 23, 23 )
+position = Vector2( 30.698, 23.6588 )
 collision_layer = 3
 collision_mask = 3
 
