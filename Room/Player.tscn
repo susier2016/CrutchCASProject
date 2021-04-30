@@ -227,9 +227,12 @@ tracks/0/keys = {
 radius = 2.0
 
 [node name="Player" type="KinematicBody2D"]
-position = Vector2( 0, -2 )
+position = Vector2( 0, -5 )
 collision_mask = 3
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( -1, 0 )
