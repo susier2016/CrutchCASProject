@@ -1,6 +1,9 @@
 extends Control
 
 signal freeze_character
+signal dialogue_complete
+
+onready var animationPlayer = $AnimationPlayer
 
 var dialogue
 var dialogue_index = 0
@@ -16,9 +19,14 @@ func _process(_delta):
 		load_dialogue()
 	
 func load_dialogue():
-	if dialogue_index < dialogue.size():
+	if dialogue.size() > 0 and dialogue_index < dialogue.size():
 		dialogue_completed = false
+		emit_signal("dialogue_complete", false)
 		finished = false
+		if(dialogue[dialogue_index] == "..."):
+			animationPlayer.play("Stop")
+		else:
+			animationPlayer.play("Talk")
 		$RichTextLabel.bbcode_text = dialogue[dialogue_index]
 		$RichTextLabel.percent_visible = 0
 		$Tween.interpolate_property(
@@ -29,9 +37,11 @@ func load_dialogue():
 		dialogue_index += 1
 	else:
 		self.visible = false
+		animationPlayer.stop(true)
 		interacted = false
 		dialogue_index = 0
 		dialogue_completed = true
+		emit_signal("dialogue_complete", true)
 		emit_signal("freeze_character", false)
 
 func _on_Tween_tween_completed(_object, _key):

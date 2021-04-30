@@ -1,8 +1,9 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Player/Player.png" type="Texture" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
-[ext_resource path="res://Room/PlayerInteract.gd" type="Script" id=3]
+[ext_resource path="res://UI/q-mark-spritesheet.png" type="Texture" id=3]
+[ext_resource path="res://Room/ContextBubble.gd" type="Script" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 2.0
@@ -206,7 +207,23 @@ start_node = "Idle"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=23]
 
-[sub_resource type="CircleShape2D" id=24]
+[sub_resource type="Animation" id=24]
+resource_name = "Hover"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[sub_resource type="CircleShape2D" id=25]
 radius = 2.0
 
 [node name="Player" type="KinematicBody2D"]
@@ -246,10 +263,22 @@ parameters/Idle/blend_position = Vector2( -0.345187, 0.484979 )
 parameters/Run/blend_position = Vector2( 0.270386, -0.733906 )
 
 [node name="ContextBubble" type="Area2D" parent="."]
-script = ExtResource( 3 )
+visible = false
+script = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="ContextBubble"]
+position = Vector2( -5, -6 )
+scale = Vector2( 0.179688, 0.179688 )
+texture = ExtResource( 3 )
+hframes = 2
+
+[node name="HoverAnimation" type="AnimationPlayer" parent="ContextBubble"]
+anims/Hover = SubResource( 24 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ContextBubble"]
 position = Vector2( 0, 5 )
-shape = SubResource( 24 )
+shape = SubResource( 25 )
 [connection signal="area_entered" from="ContextBubble" to="." method="_on_ContextBubble_area_entered"]
+[connection signal="area_entered" from="ContextBubble" to="ContextBubble" method="_on_ContextBubble_area_entered"]
 [connection signal="area_exited" from="ContextBubble" to="." method="_on_ContextBubble_area_exited"]
+[connection signal="area_exited" from="ContextBubble" to="ContextBubble" method="_on_ContextBubble_area_exited"]

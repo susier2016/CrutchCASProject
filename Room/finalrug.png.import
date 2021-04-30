@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/DialogueBox.png-4bcb233c85c4affe90cc9709698a4b0c.stex"
+path="res://.import/finalrug.png-496c76269cfba5cb5d48fa7da84fbec8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/DialogueBox.png"
-dest_files=[ "res://.import/DialogueBox.png-4bcb233c85c4affe90cc9709698a4b0c.stex" ]
+source_file="res://Room/finalrug.png"
+dest_files=[ "res://.import/finalrug.png-496c76269cfba5cb5d48fa7da84fbec8.stex" ]
 
 [params]
 
