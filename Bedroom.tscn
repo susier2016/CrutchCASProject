@@ -131,7 +131,7 @@ position = Vector2( 64, 17 )
 
 [node name="BedroomMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
-volume_db = -15.0
+volume_db = -17.0
 autoplay = true
 __meta__ = {
 "_editor_description_": "bedroom music"
