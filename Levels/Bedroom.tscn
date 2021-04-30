@@ -86,12 +86,13 @@ position = Vector2( 30, 10 )
 [node name="Floor" type="Sprite" parent="."]
 position = Vector2( 48, 40 )
 scale = Vector2( 0.5, 0.5 )
-z_index = -1
+z_index = -3
 texture = ExtResource( 5 )
 region_enabled = true
 region_rect = Rect2( -32, -23, 189, 92 )
 
 [node name="WallTileMap" type="TileMap" parent="."]
+z_index = -1
 tile_set = SubResource( 1 )
 cell_size = Vector2( 32, 32 )
 format = 1
@@ -111,11 +112,11 @@ polygon = PoolVector2Array( 2, 17, 0, 17, 0, 64, 96, 64, 96, 17, 94, 17, 94, 62,
 [node name="Rug" type="Sprite" parent="."]
 position = Vector2( 48.25, 40 )
 scale = Vector2( 0.5, 0.5 )
-z_index = -1
+z_index = -2
 texture = ExtResource( 9 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 24, 24 )
+position = Vector2( 49, 26 )
 collision_layer = 3
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -142,7 +143,8 @@ position = Vector2( 88, 15 )
 position = Vector2( 24, 16 )
 
 [node name="Volleyball" parent="." instance=ExtResource( 3 )]
-position = Vector2( 64, 17 )
+position = Vector2( 65, 17 )
+z_index = -1
 
 [node name="Door" parent="." instance=ExtResource( 14 )]
 position = Vector2( 91, 28 )
