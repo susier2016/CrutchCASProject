@@ -10,7 +10,7 @@
 [ext_resource path="res://Room/Player.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Room/Home (Night Ver.).wav" type="AudioStream" id=9]
 [ext_resource path="res://Player/steps.wav" type="AudioStream" id=10]
-[ext_resource path="res://DialogueBox.gd" type="Script" id=11]
+[ext_resource path="res://UI/DialogueBox.gd" type="Script" id=11]
 [ext_resource path="res://UI/dialogue.png" type="Texture" id=12]
 [ext_resource path="res://UI/RPGSystem.ttf" type="DynamicFontData" id=13]
 [ext_resource path="res://Room/finalrug.png" type="Texture" id=14]
@@ -145,7 +145,7 @@ position = Vector2( 24, 16 )
 position = Vector2( 64, 17 )
 
 [node name="Door" parent="." instance=ExtResource( 17 )]
-position = Vector2( 90, 33 )
+position = Vector2( 90, 35 )
 
 [node name="BedroomMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
