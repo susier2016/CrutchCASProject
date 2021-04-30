@@ -5,10 +5,9 @@
 [ext_resource path="res://UI/q-mark-spritesheet.png" type="Texture" id=3]
 [ext_resource path="res://Room/ContextBubble.gd" type="Script" id=4]
 
-
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 2.0
-height = 2.0
+height = 4.0
 
 [sub_resource type="Animation" id=2]
 resource_name = "IdleDownLeft"
@@ -231,9 +230,6 @@ radius = 2.0
 position = Vector2( 0, -5 )
 collision_mask = 3
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( -1, 0 )
@@ -282,7 +278,7 @@ anims/Hover = SubResource( 24 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ContextBubble"]
 position = Vector2( 0, 5 )
 shape = SubResource( 25 )
-[connection signal="area_entered" from="ContextBubble" to="." method="_on_ContextBubble_area_entered"]
 [connection signal="area_entered" from="ContextBubble" to="ContextBubble" method="_on_ContextBubble_area_entered"]
-[connection signal="area_exited" from="ContextBubble" to="." method="_on_ContextBubble_area_exited"]
+[connection signal="area_entered" from="ContextBubble" to="." method="_on_ContextBubble_area_entered"]
 [connection signal="area_exited" from="ContextBubble" to="ContextBubble" method="_on_ContextBubble_area_exited"]
+[connection signal="area_exited" from="ContextBubble" to="." method="_on_ContextBubble_area_exited"]
