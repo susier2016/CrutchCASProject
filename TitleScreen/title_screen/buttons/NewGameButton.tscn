@@ -7,4 +7,9 @@ rect_min_size = Vector2( 0, 0 )
 scene_to_load = "res://TitleScreen/game/NewGame.tscn"
 
 [node name="Label" parent="." index="0"]
-text = "New Game"
+margin_left = 1.33205
+margin_top = 2.66409
+margin_right = -0.667953
+margin_bottom = -7.33591
+text = "Press enter to start"
+align = 1

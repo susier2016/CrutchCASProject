@@ -116,7 +116,7 @@ z_index = -2
 texture = ExtResource( 9 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 24, 22 )
+position = Vector2( 60, 17 )
 collision_layer = 3
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
