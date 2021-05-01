@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://TitleScreen/title_screen/title_screen.gd" type="Script" id=1]
 [ext_resource path="res://UI/RPGSystem.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://TitleScreen/title_screen/buttons/NewGameButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://TitleScreen/title_screen/TITLETHEME.wav" type="AudioStream" id=4]
 [ext_resource path="res://Autoloads/SceneChanger.tscn" type="PackedScene" id=8]
 
 [sub_resource type="DynamicFont" id=1]
@@ -79,3 +80,7 @@ text = "Created by 6R2T
 Demo Build"
 
 [node name="SceneChanger" parent="." instance=ExtResource( 8 )]
+
+[node name="TitleMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -17.0
