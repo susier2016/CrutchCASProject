@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Room/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://School/schooltile.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://School/LockerTop.tscn" type="PackedScene" id=4]
 [ext_resource path="res://School/Locker.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Player/steps.wav" type="AudioStream" id=6]
+[ext_resource path="res://School/Copper Cove High.wav" type="AudioStream" id=7]
 
 [sub_resource type="TileSet" id=1]
 0/name = "schooltile.png 0"
@@ -118,3 +119,8 @@ current = true
 [node name="Walking" type="AudioStreamPlayer" parent="Player"]
 stream = ExtResource( 6 )
 volume_db = -20.0
+
+[node name="SchoolMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -17.0
+autoplay = true
