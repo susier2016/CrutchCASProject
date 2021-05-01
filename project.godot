@@ -18,6 +18,10 @@ _global_script_class_icons={
 config/name="Crutch"
 run/main_scene="res://TitleScreen/title_screen/TitleScreen.tscn"
 
+[autoload]
+
+SceneChanger="*res://Autoloads/SceneChanger.tscn"
+
 [display]
 
 window/size/width=160
