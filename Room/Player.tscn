@@ -237,7 +237,7 @@ scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 1 )
 vframes = 4
 hframes = 4
-frame = 4
+frame = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 5 )
@@ -259,7 +259,7 @@ tree_root = SubResource( 22 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 23 )
-parameters/Idle/blend_position = Vector2( -0.345187, 0.484979 )
+parameters/Idle/blend_position = Vector2( 0.41263, 0.562876 )
 parameters/Run/blend_position = Vector2( 0.270386, -0.733906 )
 
 [node name="ContextBubble" type="Area2D" parent="."]
