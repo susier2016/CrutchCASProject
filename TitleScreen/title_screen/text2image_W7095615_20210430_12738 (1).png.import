@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/text2image_W7095615_20210430_12738 (1).png-9fd154097c37a593e8474ecb6104e1a1.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://TitleScreen/title_screen/text2image_W7095615_20210430_12738 (1).png"
+dest_files=[ "res://.import/text2image_W7095615_20210430_12738 (1).png-9fd154097c37a593e8474ecb6104e1a1.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0
