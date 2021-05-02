@@ -187,7 +187,7 @@ volume_db = -20.0
 position = Vector2( 192, 40 )
 
 [node name="IdleGirl" parent="." instance=ExtResource( 9 )]
-position = Vector2( 218, 48 )
+position = Vector2( 339, 53 )
 
 [node name="SchoolMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
@@ -195,4 +195,4 @@ volume_db = -17.0
 autoplay = true
 
 [node name="IdleBoy" parent="." instance=ExtResource( 10 )]
-position = Vector2( 261, 42 )
+position = Vector2( 426, 75 )
