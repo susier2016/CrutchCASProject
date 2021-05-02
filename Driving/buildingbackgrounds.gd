@@ -1,6 +1,6 @@
 extends Sprite
 
-const VELOCITY: float = -0.5
+const VELOCITY: float = -0.25
 var g_texture_width: float = 0
 
 func _ready():
@@ -13,3 +13,4 @@ func _process(_delta):
 func _attempt_reposition() -> void:
 	if position.x < 0:
 		position.x += 2 * g_texture_width
+	

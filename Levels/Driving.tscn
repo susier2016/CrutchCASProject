@@ -1,60 +1,32 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Driving/Car.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Driving/buildingbackgrounds.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Driving/TreeBackground.gd" type="Script" id=4]
 [ext_resource path="res://Driving/TreeBackground.tscn" type="PackedScene" id=5]
 
-[sub_resource type="Animation" id=2]
-resource_name = "BuildingsMoving"
-length = 5.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 25 ), Vector2( 160, 25 ) ]
-}
-
-[sub_resource type="Animation" id=1]
-resource_name = "RoadMoving"
-length = 5.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 42 ), Vector2( 160, 42 ) ]
-}
-
 [node name="Driving" type="YSort"]
 
-[node name="Car" parent="." instance=ExtResource( 1 )]
-position = Vector2( 44, 45 )
-scale = Vector2( 0.5, 0.5 )
+[node name="Buildings" parent="." instance=ExtResource( 3 )]
+position = Vector2( 167, 32 )
+scale = Vector2( 0.904891, 1 )
+offset = Vector2( -0.5, 0 )
 
-[node name="buildingbackgrounds" parent="." instance=ExtResource( 3 )]
-position = Vector2( 0, 25 )
-
-[node name="AnimationPlayer3" type="AnimationPlayer" parent="buildingbackgrounds"]
-anims/BuildingsMoving = SubResource( 2 )
-
-[node name="carscenetrees" parent="." instance=ExtResource( 5 )]
-position = Vector2( 0, 42 )
+[node name="Trees" parent="." instance=ExtResource( 5 )]
+position = Vector2( 183, 63 )
 scale = Vector2( 1.01514, 0.474609 )
+offset = Vector2( -0.25, 0 )
 script = ExtResource( 4 )
 
-[node name="AnimationPlayer2" type="AnimationPlayer" parent="carscenetrees"]
-anims/RoadMoving = SubResource( 1 )
+[node name="Car" parent="." instance=ExtResource( 1 )]
+position = Vector2( 79, 67 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="UserInterface" type="CanvasLayer" parent="."]
+
+[node name="DialogueBox" type="Control" parent="UserInterface"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}

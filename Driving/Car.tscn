@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Levels/Car.gd" type="Script" id=1]
+[ext_resource path="res://Driving/Car.gd" type="Script" id=1]
 [ext_resource path="res://Driving/car-Sheet.png" type="Texture" id=2]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Driving"
-length = 0.9
+length = 1.2
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -14,10 +14,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.3, 0.6, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2 ]
+"values": [ 0, 1, 2, 1 ]
 }
 
 [sub_resource type="CapsuleShape2D" id=2]
@@ -27,6 +27,7 @@ height = 32.0
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -10 )
 texture = ExtResource( 2 )
 hframes = 3
 frame = 1
@@ -35,5 +36,6 @@ frame = 1
 anims/Driving = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.0924759, 0.0798111 )
 rotation = 1.5708
 shape = SubResource( 2 )

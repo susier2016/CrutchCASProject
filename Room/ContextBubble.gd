@@ -4,6 +4,8 @@ onready var animationPlayer = $HoverAnimation
 var interactable = false
 
 func _process(_delta):
+	if get_overlapping_areas().size() > 0:
+		print(true)
 	if Input.is_action_just_pressed("ui_interact") and interactable:
 		self.visible = false
 

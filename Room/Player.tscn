@@ -275,7 +275,7 @@ anims/Hover = SubResource( 24 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ContextBubble"]
 shape = SubResource( 25 )
-[connection signal="area_entered" from="ContextBubble" to="." method="_on_ContextBubble_area_entered"]
 [connection signal="area_entered" from="ContextBubble" to="ContextBubble" method="_on_ContextBubble_area_entered"]
-[connection signal="area_exited" from="ContextBubble" to="." method="_on_ContextBubble_area_exited"]
+[connection signal="area_entered" from="ContextBubble" to="." method="_on_ContextBubble_area_entered"]
 [connection signal="area_exited" from="ContextBubble" to="ContextBubble" method="_on_ContextBubble_area_exited"]
+[connection signal="area_exited" from="ContextBubble" to="." method="_on_ContextBubble_area_exited"]

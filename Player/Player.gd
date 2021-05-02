@@ -42,9 +42,9 @@ func _physics_process(delta):
 func _on_ContextBubble_area_entered(area: Area2D) -> void:
 	if area.has_method("interact"):
 		emit_signal("interactable", true, area)
-	
-func _on_ContextBubble_area_exited(_area):
-	emit_signal("interactable", false, null)
+#
+#func _on_ContextBubble_area_exited(_area):
+#	emit_signal("interactable", false, null)
 	
 func _on_DialogueBox_freeze_character(isFrozen):
 	frozen = isFrozen

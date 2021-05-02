@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/carscenetrees.png-7a2c02afffefd779872cbff091565ca9.stex"
+path="res://.import/trees.png-8456a8f5a25384c744b52e657fb6abb7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Levels/carscenetrees.png"
-dest_files=[ "res://.import/carscenetrees.png-7a2c02afffefd779872cbff091565ca9.stex" ]
+source_file="res://Driving/trees.png"
+dest_files=[ "res://.import/trees.png-8456a8f5a25384c744b52e657fb6abb7.stex" ]
 
 [params]
 
