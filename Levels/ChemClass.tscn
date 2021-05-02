@@ -7,13 +7,14 @@
 [ext_resource path="res://ChemClass/Desk.tscn" type="PackedScene" id=5]
 [ext_resource path="res://ChemClass/whiteboard2.png" type="Texture" id=6]
 [ext_resource path="res://ChemClass/teacherdesk (1).png" type="Texture" id=7]
-[ext_resource path="res://Levels/SchoolDeskInteract.gd" type="Script" id=8]
+[ext_resource path="res://ChemClass/SchoolDeskInteract.gd" type="Script" id=8]
 [ext_resource path="res://UI/talksprite-protag-Sheet.png" type="Texture" id=9]
 [ext_resource path="res://UI/typesound2.wav" type="AudioStream" id=10]
 [ext_resource path="res://UI/dialogue.png" type="Texture" id=11]
 [ext_resource path="res://UI/RPGSystem.ttf" type="DynamicFontData" id=12]
-[ext_resource path="res://Levels/ChemDialogue.gd" type="Script" id=13]
+[ext_resource path="res://ChemClass/ChemDialogue.gd" type="Script" id=13]
 [ext_resource path="res://NPC/talksprite-teacher-Sheet.png" type="Texture" id=14]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7, 4 )

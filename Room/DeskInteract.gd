@@ -17,6 +17,6 @@ func _process(_delta):
 
 func interact():
 	if(!interacted):
-		return ["Oh, ****!", "That's what I forgot. The chemistry quiz.", "I've just been...getting so far behind in all of my classes...", "You'd think a teacher would be more understanding after a student tears her ACL."]
+		return ["Oh, ****!", "That's what I forgot. The chemistry quiz.", "I've just been...getting so far behind in all of my classes...", "It's just so hard to focus."]
 	else:
 		return []

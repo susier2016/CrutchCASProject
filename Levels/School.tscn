@@ -132,7 +132,7 @@ position = Vector2( 268, -21 )
 position = Vector2( 244, -21 )
 
 [node name="IdleBoy" parent="." instance=ExtResource( 10 )]
-position = Vector2( 262, 49 )
+position = Vector2( 210, 44 )
 
 [node name="IdleBoy2" parent="." instance=ExtResource( 10 )]
 position = Vector2( 272.784, 26.7248 )
@@ -144,10 +144,10 @@ position = Vector2( 237, 56 )
 position = Vector2( 234.544, 37.6801 )
 
 [node name="BestFriend" parent="." instance=ExtResource( 8 )]
-position = Vector2( 192, 40 )
+position = Vector2( 268, -10 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 138, 34 )
+position = Vector2( -86, 39 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
