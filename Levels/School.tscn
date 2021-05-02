@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Room/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://School/SchoolTiles3.png" type="Texture" id=2]
@@ -12,6 +12,17 @@
 [ext_resource path="res://NPC/IdleBoy.tscn" type="PackedScene" id=10]
 [ext_resource path="res://School/DoorRight.tscn" type="PackedScene" id=11]
 [ext_resource path="res://School/DoorLeft.tscn" type="PackedScene" id=12]
+[ext_resource path="res://UI/typesound2.wav" type="AudioStream" id=13]
+[ext_resource path="res://UI/dialogue.png" type="Texture" id=14]
+[ext_resource path="res://UI/talksprite-protag-Sheet.png" type="Texture" id=15]
+[ext_resource path="res://UI/RPGSystem.ttf" type="DynamicFontData" id=16]
+[ext_resource path="res://School/SchoolDialogue.gd" type="Script" id=17]
+[ext_resource path="res://Levels/FriendInteract.gd" type="Script" id=18]
+[ext_resource path="res://UI/talksprite-bestfriend-Sheet.png" type="Texture" id=19]
+[ext_resource path="res://UI/Option.tscn" type="PackedScene" id=20]
+[ext_resource path="res://UI/Option2.gd" type="Script" id=21]
+[ext_resource path="res://UI/Option3.gd" type="Script" id=22]
+[ext_resource path="res://UI/Option1.gd" type="Script" id=23]
 
 [sub_resource type="TileSet" id=1]
 0/name = "SchoolTiles3.png 0"
@@ -38,8 +49,85 @@
 0/shapes = [  ]
 0/z_index = 0
 
+[sub_resource type="CircleShape2D" id=5]
+radius = 7.0
+
+[sub_resource type="DynamicFont" id=2]
+size = 5
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_char = 1
+font_data = ExtResource( 16 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "Stop"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 1.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Stop"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "Talk"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4, 5, 6, 0 ]
+}
+
 [node name="School" type="YSort"]
 position = Vector2( -14, 0 )
+
+[node name="SchoolMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -17.0
+autoplay = true
 
 [node name="Floor" type="TileMap" parent="."]
 z_index = -5
@@ -146,8 +234,14 @@ position = Vector2( 234.544, 37.6801 )
 [node name="BestFriend" parent="." instance=ExtResource( 8 )]
 position = Vector2( 268, -10 )
 
+[node name="InteractableArea" type="Area2D" parent="BestFriend"]
+script = ExtResource( 18 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BestFriend/InteractableArea"]
+shape = SubResource( 5 )
+
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( -86, 39 )
+position = Vector2( 250, 23 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
@@ -156,7 +250,115 @@ current = true
 stream = ExtResource( 6 )
 volume_db = -20.0
 
-[node name="SchoolMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 7 )
-volume_db = -17.0
-autoplay = true
+[node name="UserInterface" type="CanvasLayer" parent="."]
+
+[node name="DialogueBox" type="Control" parent="UserInterface"]
+visible = false
+margin_left = 50.0
+margin_top = 71.0
+margin_right = 109.0
+margin_bottom = 87.0
+script = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="UserInterface/DialogueBox"]
+margin_left = -28.0
+margin_top = -10.0
+margin_right = 88.0
+margin_bottom = 17.0
+texture = ExtResource( 14 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UserInterface/DialogueBox"]
+anchor_left = 1.1
+anchor_top = 0.975
+anchor_right = 3.425
+anchor_bottom = 1.375
+margin_left = -66.9
+margin_top = -19.6
+margin_right = -121.075
+margin_bottom = -9.0
+custom_fonts/normal_font = SubResource( 2 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Options" type="VBoxContainer" parent="UserInterface/DialogueBox"]
+visible = false
+margin_left = -2.0
+margin_top = -6.0
+margin_right = 84.0
+margin_bottom = 12.0
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Option1" parent="UserInterface/DialogueBox/Options" instance=ExtResource( 20 )]
+margin_right = 86.0
+margin_bottom = 6.0
+script = ExtResource( 23 )
+
+[node name="Option2" parent="UserInterface/DialogueBox/Options" instance=ExtResource( 20 )]
+margin_top = 6.0
+margin_right = 86.0
+margin_bottom = 12.0
+script = ExtResource( 21 )
+
+[node name="Option3" parent="UserInterface/DialogueBox/Options" instance=ExtResource( 20 )]
+margin_top = 12.0
+margin_right = 86.0
+margin_bottom = 18.0
+script = ExtResource( 22 )
+
+[node name="Player" type="Sprite" parent="UserInterface/DialogueBox"]
+position = Vector2( -15, 4 )
+scale = Vector2( 0.296875, 0.296875 )
+texture = ExtResource( 15 )
+offset = Vector2( 0, 0.75 )
+hframes = 11
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UserInterface/DialogueBox/Player"]
+anims/Stop = SubResource( 3 )
+anims/Talk = SubResource( 4 )
+
+[node name="Friend" type="Sprite" parent="UserInterface/DialogueBox"]
+visible = false
+position = Vector2( -15, 4 )
+scale = Vector2( 0.297, 0.297 )
+texture = ExtResource( 19 )
+offset = Vector2( 0, 0.75 )
+hframes = 7
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UserInterface/DialogueBox/Friend"]
+anims/Stop = SubResource( 6 )
+anims/Talk = SubResource( 7 )
+
+[node name="Tween" type="Tween" parent="UserInterface/DialogueBox"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="UserInterface/DialogueBox"]
+stream = ExtResource( 13 )
+volume_db = -10.0
+[connection signal="interactable" from="Player" to="UserInterface/DialogueBox" method="_on_Player_interactable"]
+[connection signal="freeze_character" from="UserInterface/DialogueBox" to="Player" method="_on_DialogueBox_freeze_character"]
+[connection signal="pressed" from="UserInterface/DialogueBox/Options/Option1" to="UserInterface/DialogueBox" method="_on_Option1_pressed"]
+[connection signal="pressed" from="UserInterface/DialogueBox/Options/Option1/Button" to="UserInterface/DialogueBox/Options/Option1" method="_on_Button_pressed"]
+[connection signal="pressed" from="UserInterface/DialogueBox/Options/Option2" to="UserInterface/DialogueBox" method="_on_Option2_pressed"]
+[connection signal="pressed" from="UserInterface/DialogueBox/Options/Option2/Button" to="UserInterface/DialogueBox/Options/Option2" method="_on_Button_pressed"]
+[connection signal="pressed" from="UserInterface/DialogueBox/Options/Option3" to="UserInterface/DialogueBox" method="_on_Option3_pressed"]
+[connection signal="pressed" from="UserInterface/DialogueBox/Options/Option3/Button" to="UserInterface/DialogueBox/Options/Option3" method="_on_Button_pressed"]
+[connection signal="tween_completed" from="UserInterface/DialogueBox/Tween" to="UserInterface/DialogueBox" method="_on_Tween_tween_completed"]
+
+[editable path="UserInterface/DialogueBox/Options/Option1"]
+
+[editable path="UserInterface/DialogueBox/Options/Option2"]
+
+[editable path="UserInterface/DialogueBox/Options/Option3"]

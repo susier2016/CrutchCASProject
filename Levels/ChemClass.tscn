@@ -15,7 +15,6 @@
 [ext_resource path="res://ChemClass/ChemDialogue.gd" type="Script" id=13]
 [ext_resource path="res://NPC/talksprite-teacher-Sheet.png" type="Texture" id=14]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7, 4 )
 
