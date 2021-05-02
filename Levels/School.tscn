@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Room/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://School/SchoolTiles3.png" type="Texture" id=2]
@@ -10,8 +10,6 @@
 [ext_resource path="res://NPC/BestFriend.tscn" type="PackedScene" id=8]
 [ext_resource path="res://NPC/IdleGirl.tscn" type="PackedScene" id=9]
 [ext_resource path="res://NPC/IdleBoy.tscn" type="PackedScene" id=10]
-[ext_resource path="res://School/DoorRight.tscn" type="PackedScene" id=11]
-[ext_resource path="res://School/DoorLeft.tscn" type="PackedScene" id=12]
 
 [sub_resource type="TileSet" id=1]
 0/name = "SchoolTiles3.png 0"
@@ -79,14 +77,6 @@ cell_size = Vector2( 32, 32 )
 format = 1
 tile_data = PoolIntArray( -1, 0, 0, -65536, 0, 2, -65533, 0, 0, -65532, 0, 2, -65529, 0, 0, -65528, 0, 2, 65533, 0, 0, 65534, 0, 1, 65535, 0, 131078, 0, 0, 131077, 1, 0, 1, 2, 0, 1, 3, 0, 131078, 4, 0, 131077, 5, 0, 1, 6, 0, 1, 7, 0, 131078, 8, 0, 131077, 9, 0, 1, 10, 0, 2, 131069, 0, 131072, 131070, 0, 131073, 131071, 0, 65542, 65536, 0, 65541, 65537, 0, 131073, 65538, 0, 131073, 65539, 0, 65542, 65540, 0, 65541, 65541, 0, 131073, 65542, 0, 131073, 65543, 0, 65542, 65544, 0, 65541, 65545, 0, 131073, 65546, 0, 131074, 196607, 0, 131072, 131072, 0, 131074, 131075, 0, 131072, 131076, 0, 131074, 131079, 0, 131072, 131080, 0, 131074 )
 
-[node name="WallCollider" type="StaticBody2D" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WallCollider"]
-polygon = PoolVector2Array( -94, 17, -30, 17, -30, -15, 30, -15, 30, 17, 98, 17, 98, -15, 158, -15, 158, 17, 211, 17, 226, 17, 226, -15, 286, -15, 286, 17, 350, 17, 350, 62, 286, 62, 286, 94, 226, 94, 226, 62, 158, 62, 158, 94, 98, 94, 98, 62, 30, 62, 30, 94, -30, 94, -30, 62, -94, 62, -96, 62, -96, 64, -32, 64, -32, 96, 32, 96, 32, 64, 96, 64, 96, 96, 160, 96, 160, 64, 224, 64, 224, 96, 288, 96, 288, 64, 352, 64, 352, 0, 288, 0, 288, -32, 224, -32, 224, 0, 160, 0, 160, -32, 96, -32, 96, 0, 32, 0, 32, -32, -32, -32, -32, 0, -96, 0, -96, 17 )
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="WallCollider"]
-polygon = PoolVector2Array( -96, 17, -94, 17, -94, 62, -96, 62 )
-
 [node name="Lockers" type="Node2D" parent="."]
 z_index = -1
 
@@ -137,41 +127,6 @@ position = Vector2( -87, 60 )
 
 [node name="LockerTop9" parent="Lockers" instance=ExtResource( 4 )]
 position = Vector2( -60, 60 )
-
-[node name="Doors" type="Node2D" parent="."]
-z_index = -1
-
-[node name="DoorLeft" parent="Doors" instance=ExtResource( 12 )]
-position = Vector2( 12, -21 )
-
-[node name="DoorRight" parent="Doors" instance=ExtResource( 11 )]
-position = Vector2( -12, -21 )
-
-[node name="DoorLeft2" parent="Doors" instance=ExtResource( 12 )]
-position = Vector2( 140, -21 )
-
-[node name="DoorRight2" parent="Doors" instance=ExtResource( 11 )]
-position = Vector2( 116, -21 )
-
-[node name="DoorLeft3" parent="Doors" instance=ExtResource( 12 )]
-position = Vector2( 268, -21 )
-
-[node name="DoorRight3" parent="Doors" instance=ExtResource( 11 )]
-position = Vector2( 244, -21 )
-
-[node name="SchoolMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 7 )
-volume_db = -17.0
-autoplay = true
-
-[node name="IdleGirl" parent="." instance=ExtResource( 9 )]
-position = Vector2( 234.544, 37.6801 )
-
-[node name="BestFriend" parent="." instance=ExtResource( 8 )]
-position = Vector2( 272.993, 0.511967 )
-
-[node name="IdleBoy" parent="." instance=ExtResource( 10 )]
-position = Vector2( 272.784, 26.7248 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 138, 34 )

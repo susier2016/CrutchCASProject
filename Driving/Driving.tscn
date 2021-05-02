@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Driving/car-Sheet.png" type="Texture" id=1]
+
+[node name="Node2D" type="YSort"]
+
+[node name="Car" type="KinematicBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Car"]
+
+[node name="Sprite" type="Sprite" parent="Car"]
+texture = ExtResource( 1 )
+hframes = 3
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Car"]
