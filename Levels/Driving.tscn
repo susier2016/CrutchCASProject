@@ -50,7 +50,7 @@ tracks/0/keys = {
 "values": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "Stop"
 length = 0.1
 loop = true
@@ -67,7 +67,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 length = 1.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -96,7 +96,7 @@ offset = Vector2( -0.25, 0 )
 script = ExtResource( 4 )
 
 [node name="Car" parent="." instance=ExtResource( 1 )]
-position = Vector2( 79, 67 )
+position = Vector2( -15, 67 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="UserInterface" type="CanvasLayer" parent="."]
@@ -184,7 +184,7 @@ script = ExtResource( 13 )
 position = Vector2( 37.9659, 73.7848 )
 scale = Vector2( 0.297, 0.297 )
 texture = ExtResource( 8 )
-offset = Vector2( 0, 1 )
+offset = Vector2( 0, 1.5 )
 hframes = 11
 frame = 5
 
@@ -201,11 +201,12 @@ offset = Vector2( 0, 1 )
 hframes = 8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UserInterface/DialogueBox/Mom"]
-anims/Stop = SubResource( 5 )
-anims/Talk = SubResource( 4 )
+anims/Stop = SubResource( 4 )
+anims/Talk = SubResource( 5 )
 
 [node name="Tween" type="Tween" parent="UserInterface/DialogueBox"]
 [connection signal="timeout" from="UserInterface/Timer" to="UserInterface/DialogueBox" method="_on_Timer_timeout"]
+[connection signal="scene_finished" from="UserInterface/DialogueBox" to="Car" method="_on_DialogueBox_scene_finished"]
 [connection signal="pressed" from="UserInterface/DialogueBox/Options/Option1" to="UserInterface/DialogueBox" method="_on_Option1_pressed"]
 [connection signal="pressed" from="UserInterface/DialogueBox/Options/Option1/Button" to="UserInterface/DialogueBox/Options/Option1" method="_on_Button_pressed"]
 [connection signal="pressed" from="UserInterface/DialogueBox/Options/Option2" to="UserInterface/DialogueBox" method="_on_Option2_pressed"]

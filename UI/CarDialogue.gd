@@ -10,7 +10,9 @@ var dialogue = [
 		"...",
 		"So...",
 		"...you skipped History yesterday.",
+	"Player",
 		"...",
+	"Mom",
 		"No answer? Okay.",
 		"This is the fourth time, but go ahead and ignore me.",
 	"Player",
@@ -25,9 +27,9 @@ var dialogue = [
 			"...of course you don't.",
 	"Player",
 		"Choice",
-			"I'm sorry",
+			"I'm sorry.",
 			"...",
-			"What's the point in caring, Mom?! It's just school",
+			"What's the point in caring, Mom?! It's just school.",
 	"Mom",
 		"Response",
 			"Forget it, kid. God knows where your head's gone.",
@@ -44,6 +46,8 @@ var dialogue_completed = true
 var choice = 0
 var waiting_for_response
 var response = ""
+
+signal scene_finished
 
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_interact") and finished and !scene_finished and started and !waiting_for_response:
@@ -99,6 +103,7 @@ func load_dialogue():
 	else:
 		if dialogue_index >= dialogue.size():
 			scene_finished = true
+			emit_signal("scene_finished")
 		self.visible = false
 		playerAnimation.stop(true)
 		dialogue_index = 0
