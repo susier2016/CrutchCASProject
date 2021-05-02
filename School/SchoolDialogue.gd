@@ -15,7 +15,7 @@ var dialogue = [
 		"We got dinner after at that new place down the street.",
 		"When are you gonna be back?",
 	"Player",
-		"...",
+		"... (Is she serious? I'm clearly in no condition to play.)",
 		"Choice",
 			"Does it look like I'm coming back anytime soon?",
 			"I'm not. I don't...I don't think I'm going to come back",
@@ -85,7 +85,7 @@ func load_dialogue():
 			dialogue_completed = false
 			emit_signal("dialogue_complete", false)
 			finished = false
-			if(dialogue[dialogue_index] == "..."):
+			if(dialogue[dialogue_index] == "..." or "(" in dialogue[dialogue_index]):
 				playerAnimation.play("Stop")
 				friendAnimation.play("Stop")
 			else:
