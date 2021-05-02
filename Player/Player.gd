@@ -48,3 +48,4 @@ func _on_ContextBubble_area_exited(_area):
 	
 func _on_DialogueBox_freeze_character(isFrozen):
 	frozen = isFrozen
+	animationState.travel("Idle")
