@@ -15,12 +15,12 @@ func _process(_delta):
 	if Input.is_action_just_pressed("ui_interact") and interactable:
 		self.visible = false
 
-#func _on_ContextBubble_area_entered(_area):
-#	interactable = true
-#	self.visible = true
-#	animationPlayer.play("Hover")
-#
-#func _on_ContextBubble_area_exited(_area):
-#	interactable = false
-#	self.visible = false
-#	animationPlayer.stop(true)
+func _on_ContextBubble_area_entered(_area):
+	interactable = true
+	self.visible = true
+	animationPlayer.play("Hover")
+
+func _on_ContextBubble_area_exited(_area):
+	interactable = false
+	self.visible = false
+	animationPlayer.stop(true)
