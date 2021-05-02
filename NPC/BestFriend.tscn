@@ -5,7 +5,7 @@
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 2.0
-height = 4.00001
+height = 4.0
 
 [sub_resource type="Animation" id=2]
 resource_name = "BestFriend"
@@ -25,6 +25,9 @@ tracks/0/keys = {
 
 [node name="BestFriend" type="KinematicBody2D"]
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 8.52651e-14, -4 )

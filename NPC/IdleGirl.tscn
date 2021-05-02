@@ -24,18 +24,21 @@ tracks/0/keys = {
 }
 
 [node name="IdleGirl" type="KinematicBody2D"]
-position = Vector2( 179, 35 )
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -179, -37 )
+position = Vector2( -1.42109e-14, -5 )
 scale = Vector2( 0.261719, 0.257813 )
 texture = ExtResource( 1 )
+offset = Vector2( 0.5, 0 )
 hframes = 5
-frame = 4
+frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -179, -33 )
+position = Vector2( 0, 4.37115e-08 )
 rotation = 1.5708
 shape = SubResource( 1 )
 
