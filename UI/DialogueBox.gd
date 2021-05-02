@@ -4,6 +4,7 @@ signal freeze_character
 signal dialogue_complete
 signal objects_interacted
 
+onready var typing = $AudioStreamPlayer
 onready var animationPlayer = $AnimationPlayer
 
 var dialogue
@@ -35,6 +36,7 @@ func load_dialogue():
 		else:
 			animationPlayer.play("Talk")
 		$RichTextLabel.bbcode_text = dialogue[dialogue_index]
+		typing.play()
 		$RichTextLabel.percent_visible = 0
 		$Tween.interpolate_property(
 			$RichTextLabel, "percent_visible", 0, 1, 1, 
@@ -45,6 +47,7 @@ func load_dialogue():
 	else:
 		self.visible = false
 		animationPlayer.stop(true)
+		typing.stop()
 		interacted = false
 		dialogue_index = 0
 		dialogue_completed = true
