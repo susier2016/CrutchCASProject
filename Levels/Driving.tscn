@@ -186,7 +186,7 @@ scale = Vector2( 0.297, 0.297 )
 texture = ExtResource( 8 )
 offset = Vector2( 0, 1.5 )
 hframes = 11
-frame = 5
+frame = 8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UserInterface/DialogueBox/Player"]
 anims/Stop = SubResource( 2 )

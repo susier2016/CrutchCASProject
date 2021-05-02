@@ -39,7 +39,7 @@ var dialogue = [
 		"Hey, are you still fighting with your friend? What's her name?",
 	"Player",
 		"..."
-	]
+]
 var dialogue_index = 0
 var finished = true
 var dialogue_completed = true

@@ -3,15 +3,15 @@
 [ext_resource path="res://ChemClass/studentdesk.png" type="Texture" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 7.75, 5 )
+extents = Vector2( 7.75, 4 )
 
 [node name="Desk" type="StaticBody2D"]
 
 [node name="Desk" type="Sprite" parent="."]
-position = Vector2( 2.38419e-07, 5.96046e-08 )
+position = Vector2( 0, -3 )
 scale = Vector2( 1.025, 0.892857 )
 texture = ExtResource( 1 )
+offset = Vector2( 0, 0.75 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -1.25 )
 shape = SubResource( 1 )

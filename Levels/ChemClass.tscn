@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://School/Floor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ChemClass/classroomtile1.png" type="Texture" id=2]
@@ -12,15 +12,16 @@
 [ext_resource path="res://UI/typesound2.wav" type="AudioStream" id=10]
 [ext_resource path="res://UI/dialogue.png" type="Texture" id=11]
 [ext_resource path="res://UI/RPGSystem.ttf" type="DynamicFontData" id=12]
-[ext_resource path="res://UI/DialogueBox.gd" type="Script" id=13]
-
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 7, 4 )
+[ext_resource path="res://Levels/ChemDialogue.gd" type="Script" id=13]
+[ext_resource path="res://NPC/talksprite-teacher-Sheet.png" type="Texture" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 9.67742, 4.4 )
+extents = Vector2( 7, 4 )
 
 [sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 9.67742, 4.4 )
+
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 4, 7.5 )
 
 [sub_resource type="DynamicFont" id=4]
@@ -32,9 +33,64 @@ font_data = ExtResource( 12 )
 [sub_resource type="Animation" id=5]
 resource_name = "Stop"
 length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
 
 [sub_resource type="Animation" id=6]
-length = 1.2
+length = 1.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "Stop"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "Talk"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4, 5, 6, 0, 4, 5, 0 ]
+}
 
 [node name="ChemClass" type="YSort"]
 
@@ -54,7 +110,7 @@ region_rect = Rect2( 39, 22, 369, 254 )
 position = Vector2( 85, -3 )
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 18.0933, 68.0996 )
+position = Vector2( 11, 68 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
@@ -66,28 +122,26 @@ visible = false
 build_mode = 1
 polygon = PoolVector2Array( 0, -5, 2, -5, 2, 72, 126, 72, 126, -5, 2, -5, 2, -20, 128, -20, 128, 73, 128, 74, 0, 74 )
 
-[node name="Desks" type="Node2D" parent="."]
-
-[node name="Desk" parent="Desks" instance=ExtResource( 5 )]
+[node name="Desk1" parent="." instance=ExtResource( 5 )]
 position = Vector2( 39, 14 )
 
-[node name="Desk2" parent="Desks" instance=ExtResource( 5 )]
+[node name="Desk2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 64, 14 )
 
-[node name="Desk4" parent="Desks" instance=ExtResource( 5 )]
+[node name="Desk3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 78, 53 )
+
+[node name="Desk4" parent="." instance=ExtResource( 5 )]
 position = Vector2( 39, 34 )
 
-[node name="Desk5" parent="Desks" instance=ExtResource( 5 )]
+[node name="Desk5" parent="." instance=ExtResource( 5 )]
 position = Vector2( 64, 34 )
 
-[node name="Desk6" parent="Desks" instance=ExtResource( 5 )]
+[node name="Desk6" parent="." instance=ExtResource( 5 )]
 position = Vector2( 89, 34 )
 
-[node name="Desk7" parent="Desks" instance=ExtResource( 5 )]
-position = Vector2( 52, 53 )
-
-[node name="Desk8" parent="Desks" instance=ExtResource( 5 )]
-position = Vector2( 78, 53 )
+[node name="Desk7" parent="." instance=ExtResource( 5 )]
+position = Vector2( 51, 53 )
 
 [node name="PlayerDesk" parent="." instance=ExtResource( 5 )]
 position = Vector2( 89, 14 )
@@ -97,7 +151,7 @@ script = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDesk/InteractableArea"]
 position = Vector2( 0, 6 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="Whiteboard" type="StaticBody2D" parent="."]
 position = Vector2( 56, -14 )
@@ -105,7 +159,7 @@ position = Vector2( 56, -14 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Whiteboard"]
 position = Vector2( 6, 0 )
 scale = Vector2( 1.55, 1.13636 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Whiteboard"]
 position = Vector2( 6, 0 )
@@ -126,7 +180,7 @@ offset = Vector2( 0.5, 0 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TeacherDesk"]
 position = Vector2( -0.5, 0.5 )
 rotation = 1.5708
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="UserInterface" type="CanvasLayer" parent="."]
 
@@ -168,16 +222,28 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Sprite" type="Sprite" parent="UserInterface/DialogueBox"]
+[node name="Player" type="Sprite" parent="UserInterface/DialogueBox"]
 position = Vector2( -15, 3 )
 scale = Vector2( 0.296875, 0.296875 )
 texture = ExtResource( 9 )
 offset = Vector2( 0, 1 )
 hframes = 11
+frame = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="UserInterface/DialogueBox"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UserInterface/DialogueBox/Player"]
 anims/Stop = SubResource( 5 )
 anims/Talk = SubResource( 6 )
+
+[node name="Teacher" type="Sprite" parent="UserInterface/DialogueBox"]
+visible = false
+position = Vector2( -15.5, 3.25 )
+scale = Vector2( 0.297, 0.297 )
+texture = ExtResource( 14 )
+hframes = 7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UserInterface/DialogueBox/Teacher"]
+anims/Stop = SubResource( 7 )
+anims/Talk = SubResource( 8 )
 
 [node name="Tween" type="Tween" parent="UserInterface/DialogueBox"]
 
