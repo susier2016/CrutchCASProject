@@ -237,7 +237,7 @@ scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 1 )
 vframes = 4
 hframes = 4
-frame = 4
+frame = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 5 )
@@ -259,7 +259,7 @@ tree_root = SubResource( 22 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 23 )
-parameters/Idle/blend_position = Vector2( -0.345187, 0.484979 )
+parameters/Idle/blend_position = Vector2( 0.741535, 0.414163 )
 parameters/Run/blend_position = Vector2( 0.270386, -0.733906 )
 
 [node name="ContextBubble" type="Area2D" parent="."]
@@ -278,7 +278,7 @@ anims/Hover = SubResource( 24 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ContextBubble"]
 position = Vector2( 0, 5 )
 shape = SubResource( 25 )
-[connection signal="area_entered" from="ContextBubble" to="ContextBubble" method="_on_ContextBubble_area_entered"]
 [connection signal="area_entered" from="ContextBubble" to="." method="_on_ContextBubble_area_entered"]
-[connection signal="area_exited" from="ContextBubble" to="ContextBubble" method="_on_ContextBubble_area_exited"]
+[connection signal="area_entered" from="ContextBubble" to="ContextBubble" method="_on_ContextBubble_area_entered"]
 [connection signal="area_exited" from="ContextBubble" to="." method="_on_ContextBubble_area_exited"]
+[connection signal="area_exited" from="ContextBubble" to="ContextBubble" method="_on_ContextBubble_area_exited"]

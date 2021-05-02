@@ -12,7 +12,7 @@ func change_scene(path, delay = 0.5):
 	yield(get_tree().create_timer(delay), "timeout")
 	animation_player.play("fade-in")
 	yield(animation_player, "animation_finished")
-	get_tree().change_scene(path)
+	var _k = get_tree().change_scene(path)
 	animation_player.play("fade-out")
 	$Control/FadeToBlack.hide()
 	emit_signal("scene_changed")
