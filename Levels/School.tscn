@@ -64,6 +64,7 @@
 0/z_index = 0
 
 [node name="School" type="YSort"]
+position = Vector2( -14, 0 )
 
 [node name="Floor" type="TileMap" parent="."]
 z_index = -5
@@ -174,7 +175,7 @@ position = Vector2( 272.993, 0.511967 )
 position = Vector2( 272.784, 26.7248 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( -87, 40 )
+position = Vector2( 138, 34 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
@@ -195,4 +196,4 @@ volume_db = -17.0
 autoplay = true
 
 [node name="IdleBoy" parent="." instance=ExtResource( 10 )]
-position = Vector2( 298, 51 )
+position = Vector2( 426, 75 )

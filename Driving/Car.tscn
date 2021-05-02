@@ -3,7 +3,7 @@
 [ext_resource path="res://Levels/Car.gd" type="Script" id=1]
 [ext_resource path="res://Driving/car-Sheet.png" type="Texture" id=2]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "Driving"
 length = 0.9
 loop = true
@@ -20,7 +20,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2 ]
 }
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=2]
 height = 32.0
 
 [node name="Car" type="KinematicBody2D"]
@@ -32,8 +32,8 @@ hframes = 3
 frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Driving = SubResource( 2 )
+anims/Driving = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
-shape = SubResource( 1 )
+shape = SubResource( 2 )
