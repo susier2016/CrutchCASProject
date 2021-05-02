@@ -1,0 +1,93 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://School/Floor.tscn" type="PackedScene" id=1]
+[ext_resource path="res://ChemClass/classroomtile1.png" type="Texture" id=2]
+[ext_resource path="res://NPC/Teacher.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Room/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://ChemClass/Desk.tscn" type="PackedScene" id=5]
+[ext_resource path="res://ChemClass/whiteboard2.png" type="Texture" id=6]
+[ext_resource path="res://ChemClass/teacherdesk.png" type="Texture" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 9.67742, 4.4 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 4, 7 )
+
+[node name="ChemClass" type="YSort"]
+
+[node name="Walls" parent="." instance=ExtResource( 1 )]
+position = Vector2( 32, 42 )
+tile_data = PoolIntArray( -65537, 0, 0, -131072, 0, 1, -131071, 0, 1, -131070, 0, 2, -1, 0, 65536, -65536, 0, 65537, -65535, 0, 65537, -65534, 0, 65538, 65535, 0, 131072, 0, 0, 131073, 1, 0, 131073, 2, 0, 131074 )
+
+[node name="Tiles" type="Sprite" parent="."]
+position = Vector2( 64, 33 )
+scale = Vector2( 0.34375, 0.325845 )
+z_index = -2
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 39, 22, 360, 239 )
+
+[node name="Teacher" parent="." instance=ExtResource( 3 )]
+position = Vector2( 85, -3 )
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 84, 63 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+current = true
+
+[node name="WallCollider" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WallCollider"]
+visible = false
+build_mode = 1
+polygon = PoolVector2Array( 0, -5, 2, -5, 2, 72, 126, 72, 126, -5, 2, -5, 2, -20, 128, -20, 128, 73, 128, 74, 0, 74 )
+
+[node name="Desk" parent="." instance=ExtResource( 5 )]
+position = Vector2( 39, 14 )
+
+[node name="Desk2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 64, 14 )
+
+[node name="Desk3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 89, 14 )
+
+[node name="Desk4" parent="." instance=ExtResource( 5 )]
+position = Vector2( 39, 34 )
+
+[node name="Desk5" parent="." instance=ExtResource( 5 )]
+position = Vector2( 64, 34 )
+
+[node name="Desk6" parent="." instance=ExtResource( 5 )]
+position = Vector2( 89, 34 )
+
+[node name="Desk7" parent="." instance=ExtResource( 5 )]
+position = Vector2( 52, 53 )
+
+[node name="Desk8" parent="." instance=ExtResource( 5 )]
+position = Vector2( 78, 53 )
+
+[node name="Whiteboard" type="StaticBody2D" parent="."]
+position = Vector2( 56, -14 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Whiteboard"]
+position = Vector2( 6, 0 )
+scale = Vector2( 1.55, 1.13636 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Whiteboard"]
+position = Vector2( 6, 0 )
+scale = Vector2( 1.55, 1.13636 )
+texture = ExtResource( 6 )
+
+[node name="TeacherDesk" type="StaticBody2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="TeacherDesk"]
+position = Vector2( 62, -2 )
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TeacherDesk"]
+position = Vector2( 62, -6 )
+rotation = 1.5708
+shape = SubResource( 3 )
