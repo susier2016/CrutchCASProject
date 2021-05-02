@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=2]
 
-[ext_resource path="res://Room/Home (Night Ver.).wav" type="AudioStream" id=1]
+[ext_resource path="res://Levels/Home (Midnight Mix.).wav" type="AudioStream" id=1]
 [ext_resource path="res://Room/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Room/Volleyball.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Room/walls.png" type="Texture" id=4]
@@ -152,7 +152,6 @@ position = Vector2( 91, 28 )
 [node name="BedroomMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
 volume_db = -17.0
-pitch_scale = 0.5
 autoplay = true
 __meta__ = {
 "_editor_description_": "bedroom music"

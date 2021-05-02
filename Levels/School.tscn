@@ -128,22 +128,8 @@ position = Vector2( -87, 60 )
 [node name="LockerTop9" parent="Lockers" instance=ExtResource( 4 )]
 position = Vector2( -60, 60 )
 
-[node name="SchoolMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 7 )
-volume_db = -17.0
-autoplay = true
-
-[node name="IdleGirl" parent="." instance=ExtResource( 9 )]
-position = Vector2( 234.544, 37.6801 )
-
-[node name="BestFriend" parent="." instance=ExtResource( 8 )]
-position = Vector2( 272.993, 0.511967 )
-
-[node name="IdleBoy" parent="." instance=ExtResource( 10 )]
-position = Vector2( 272.784, 26.7248 )
-
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 186.734, 38.9765 )
+position = Vector2( 138, 34 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
@@ -151,3 +137,17 @@ current = true
 [node name="Walking" type="AudioStreamPlayer" parent="Player"]
 stream = ExtResource( 6 )
 volume_db = -20.0
+
+[node name="BestFriend" parent="." instance=ExtResource( 8 )]
+position = Vector2( 192, 40 )
+
+[node name="IdleGirl" parent="." instance=ExtResource( 9 )]
+position = Vector2( 339, 53 )
+
+[node name="SchoolMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -17.0
+autoplay = true
+
+[node name="IdleBoy" parent="." instance=ExtResource( 10 )]
+position = Vector2( 426, 75 )
