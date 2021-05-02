@@ -84,10 +84,10 @@ texture = ExtResource( 6 )
 [node name="TeacherDesk" type="StaticBody2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="TeacherDesk"]
-position = Vector2( 62, -2 )
+position = Vector2( 13, 4 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TeacherDesk"]
-position = Vector2( 62, -6 )
+position = Vector2( 13, 0 )
 rotation = 1.5708
 shape = SubResource( 3 )
