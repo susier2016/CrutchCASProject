@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Room/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://School/SchoolTiles3.png" type="Texture" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://Player/steps.wav" type="AudioStream" id=6]
 [ext_resource path="res://School/Copper Cove High.wav" type="AudioStream" id=7]
 [ext_resource path="res://NPC/BestFriend.tscn" type="PackedScene" id=8]
+[ext_resource path="res://NPC/IdleGirl.tscn" type="PackedScene" id=9]
+[ext_resource path="res://NPC/IdleBoy.tscn" type="PackedScene" id=10]
 
 [sub_resource type="TileSet" id=1]
 0/name = "SchoolTiles3.png 0"
@@ -127,7 +129,7 @@ position = Vector2( -87, 60 )
 position = Vector2( -60, 60 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( -85, 35 )
+position = Vector2( 138, 34 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
@@ -138,9 +140,14 @@ volume_db = -20.0
 
 [node name="BestFriend" parent="." instance=ExtResource( 8 )]
 position = Vector2( 192, 40 )
-z_index = -1
+
+[node name="IdleGirl" parent="." instance=ExtResource( 9 )]
+position = Vector2( 339, 53 )
 
 [node name="SchoolMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 volume_db = -17.0
 autoplay = true
+
+[node name="IdleBoy" parent="." instance=ExtResource( 10 )]
+position = Vector2( 426, 75 )

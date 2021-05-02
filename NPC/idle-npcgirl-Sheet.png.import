@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/idle-friend-Sheet.png-9e0efc59c22f846659329ad229b1dd60.stex"
+path="res://.import/idle-npcgirl-Sheet.png-5cc35a7537dea9c201be3bcb672bebb6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://NPC/idle-friend-Sheet.png"
-dest_files=[ "res://.import/idle-friend-Sheet.png-9e0efc59c22f846659329ad229b1dd60.stex" ]
+source_file="res://NPC/idle-npcgirl-Sheet.png"
+dest_files=[ "res://.import/idle-npcgirl-Sheet.png-5cc35a7537dea9c201be3bcb672bebb6.stex" ]
 
 [params]
 
