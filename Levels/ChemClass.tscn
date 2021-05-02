@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://School/Floor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ChemClass/classroomtile1.png" type="Texture" id=2]
@@ -6,13 +6,35 @@
 [ext_resource path="res://Room/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://ChemClass/Desk.tscn" type="PackedScene" id=5]
 [ext_resource path="res://ChemClass/whiteboard2.png" type="Texture" id=6]
-[ext_resource path="res://ChemClass/teacherdesk.png" type="Texture" id=7]
+[ext_resource path="res://ChemClass/teacherdesk (1).png" type="Texture" id=7]
+[ext_resource path="res://Levels/SchoolDeskInteract.gd" type="Script" id=8]
+[ext_resource path="res://UI/talksprite-protag-Sheet.png" type="Texture" id=9]
+[ext_resource path="res://UI/typesound2.wav" type="AudioStream" id=10]
+[ext_resource path="res://UI/dialogue.png" type="Texture" id=11]
+[ext_resource path="res://UI/RPGSystem.ttf" type="DynamicFontData" id=12]
+[ext_resource path="res://UI/DialogueBox.gd" type="Script" id=13]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 7, 4 )
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 9.67742, 4.4 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 4, 7 )
+extents = Vector2( 4, 7.5 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 5
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_char = 1
+font_data = ExtResource( 12 )
+
+[sub_resource type="Animation" id=5]
+resource_name = "Stop"
+length = 0.1
+
+[sub_resource type="Animation" id=6]
+length = 1.2
 
 [node name="ChemClass" type="YSort"]
 
@@ -21,18 +43,18 @@ position = Vector2( 32, 42 )
 tile_data = PoolIntArray( -65537, 0, 0, -131072, 0, 1, -131071, 0, 1, -131070, 0, 2, -1, 0, 65536, -65536, 0, 65537, -65535, 0, 65537, -65534, 0, 65538, 65535, 0, 131072, 0, 0, 131073, 1, 0, 131073, 2, 0, 131074 )
 
 [node name="Tiles" type="Sprite" parent="."]
-position = Vector2( 64, 33 )
+position = Vector2( 64, 32 )
 scale = Vector2( 0.34375, 0.325845 )
 z_index = -2
 texture = ExtResource( 2 )
 region_enabled = true
-region_rect = Rect2( 39, 22, 360, 239 )
+region_rect = Rect2( 39, 22, 369, 254 )
 
 [node name="Teacher" parent="." instance=ExtResource( 3 )]
 position = Vector2( 85, -3 )
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 84, 63 )
+position = Vector2( 18.0933, 68.0996 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
@@ -44,29 +66,38 @@ visible = false
 build_mode = 1
 polygon = PoolVector2Array( 0, -5, 2, -5, 2, 72, 126, 72, 126, -5, 2, -5, 2, -20, 128, -20, 128, 73, 128, 74, 0, 74 )
 
-[node name="Desk" parent="." instance=ExtResource( 5 )]
+[node name="Desks" type="Node2D" parent="."]
+
+[node name="Desk" parent="Desks" instance=ExtResource( 5 )]
 position = Vector2( 39, 14 )
 
-[node name="Desk2" parent="." instance=ExtResource( 5 )]
+[node name="Desk2" parent="Desks" instance=ExtResource( 5 )]
 position = Vector2( 64, 14 )
 
-[node name="Desk3" parent="." instance=ExtResource( 5 )]
-position = Vector2( 89, 14 )
-
-[node name="Desk4" parent="." instance=ExtResource( 5 )]
+[node name="Desk4" parent="Desks" instance=ExtResource( 5 )]
 position = Vector2( 39, 34 )
 
-[node name="Desk5" parent="." instance=ExtResource( 5 )]
+[node name="Desk5" parent="Desks" instance=ExtResource( 5 )]
 position = Vector2( 64, 34 )
 
-[node name="Desk6" parent="." instance=ExtResource( 5 )]
+[node name="Desk6" parent="Desks" instance=ExtResource( 5 )]
 position = Vector2( 89, 34 )
 
-[node name="Desk7" parent="." instance=ExtResource( 5 )]
+[node name="Desk7" parent="Desks" instance=ExtResource( 5 )]
 position = Vector2( 52, 53 )
 
-[node name="Desk8" parent="." instance=ExtResource( 5 )]
+[node name="Desk8" parent="Desks" instance=ExtResource( 5 )]
 position = Vector2( 78, 53 )
+
+[node name="PlayerDesk" parent="." instance=ExtResource( 5 )]
+position = Vector2( 89, 14 )
+
+[node name="InteractableArea" type="Area2D" parent="PlayerDesk"]
+script = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDesk/InteractableArea"]
+position = Vector2( 0, 6 )
+shape = SubResource( 3 )
 
 [node name="Whiteboard" type="StaticBody2D" parent="."]
 position = Vector2( 56, -14 )
@@ -82,12 +113,77 @@ scale = Vector2( 1.55, 1.13636 )
 texture = ExtResource( 6 )
 
 [node name="TeacherDesk" type="StaticBody2D" parent="."]
+position = Vector2( 10, 8 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="Sprite" parent="TeacherDesk"]
-position = Vector2( 13, 4 )
+position = Vector2( -1, -3 )
 texture = ExtResource( 7 )
+offset = Vector2( 0.5, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TeacherDesk"]
-position = Vector2( 13, 0 )
+position = Vector2( -0.5, 0.5 )
 rotation = 1.5708
 shape = SubResource( 2 )
+
+[node name="UserInterface" type="CanvasLayer" parent="."]
+
+[node name="DialogueBox" type="Control" parent="UserInterface"]
+visible = false
+margin_left = 51.0
+margin_top = 71.0
+margin_right = 110.0
+margin_bottom = 87.0
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="UserInterface/DialogueBox"]
+margin_left = -28.0
+margin_top = -10.0
+margin_right = 85.0
+margin_bottom = 16.0
+texture = ExtResource( 11 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UserInterface/DialogueBox"]
+anchor_left = 1.1
+anchor_top = 0.975
+anchor_right = 3.425
+anchor_bottom = 1.375
+margin_left = -66.9
+margin_top = -19.6
+margin_right = -121.075
+margin_bottom = -9.0
+custom_fonts/normal_font = SubResource( 4 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="UserInterface/DialogueBox"]
+position = Vector2( -15, 3 )
+scale = Vector2( 0.296875, 0.296875 )
+texture = ExtResource( 9 )
+offset = Vector2( 0, 1 )
+hframes = 11
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UserInterface/DialogueBox"]
+anims/Stop = SubResource( 5 )
+anims/Talk = SubResource( 6 )
+
+[node name="Tween" type="Tween" parent="UserInterface/DialogueBox"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="UserInterface/DialogueBox"]
+stream = ExtResource( 10 )
+volume_db = -10.0
+[connection signal="interactable" from="Player" to="UserInterface/DialogueBox" method="_on_Player_interactable"]
+[connection signal="freeze_character" from="UserInterface/DialogueBox" to="Player" method="_on_DialogueBox_freeze_character"]
+[connection signal="tween_completed" from="UserInterface/DialogueBox/Tween" to="UserInterface/DialogueBox" method="_on_Tween_tween_completed"]

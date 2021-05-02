@@ -258,7 +258,7 @@ tree_root = SubResource( 22 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 23 )
-parameters/Idle/blend_position = Vector2( 0.741535, 0.414163 )
+parameters/Idle/blend_position = Vector2( 0.172076, 0.680043 )
 parameters/Run/blend_position = Vector2( 0.270386, -0.733906 )
 
 [node name="ContextBubble" type="Area2D" parent="."]
@@ -281,7 +281,7 @@ shape = SubResource( 25 )
 [node name="Walking" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 volume_db = -15.0
-[connection signal="area_entered" from="ContextBubble" to="ContextBubble" method="_on_ContextBubble_area_entered"]
 [connection signal="area_entered" from="ContextBubble" to="." method="_on_ContextBubble_area_entered"]
-[connection signal="area_exited" from="ContextBubble" to="ContextBubble" method="_on_ContextBubble_area_exited"]
+[connection signal="area_entered" from="ContextBubble" to="ContextBubble" method="_on_ContextBubble_area_entered"]
 [connection signal="area_exited" from="ContextBubble" to="." method="_on_ContextBubble_area_exited"]
+[connection signal="area_exited" from="ContextBubble" to="ContextBubble" method="_on_ContextBubble_area_exited"]
