@@ -43,7 +43,6 @@ tracks/0/keys = {
 }
 
 [node name="DialogueBox" type="Control"]
-visible = false
 margin_left = 52.0
 margin_top = 71.0
 margin_right = 111.0
