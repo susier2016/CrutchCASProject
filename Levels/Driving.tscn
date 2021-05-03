@@ -108,6 +108,8 @@ stream = ExtResource( 14 )
 volume_db = -15.0
 autoplay = true
 
+[node name="SceneChanger" parent="." instance=ExtResource( 15 )]
+
 [node name="UserInterface" type="CanvasLayer" parent="."]
 
 [node name="Timer" type="Timer" parent="UserInterface"]
@@ -120,7 +122,6 @@ autostart = true
 visible = false
 anchor_right = 0.317
 anchor_bottom = 0.338
-margin_right = -10.72
 margin_bottom = 9.58
 script = ExtResource( 2 )
 __meta__ = {
@@ -144,10 +145,10 @@ anchor_left = 0.625
 anchor_top = 1.5
 anchor_right = 3.45
 anchor_bottom = 2.15
-margin_left = 26.0
+margin_left = 19.3
 margin_top = 6.0
-margin_right = -4.0
-margin_bottom = -3.0
+margin_right = -38.984
+margin_bottom = -2.0
 custom_fonts/normal_font = SubResource( 1 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 text = "hey what's up
@@ -157,14 +158,13 @@ __meta__ = {
 }
 
 [node name="Options" type="VBoxContainer" parent="UserInterface/DialogueBox"]
-anchor_left = 1.075
-anchor_top = 1.15
-anchor_right = 3.065
-anchor_bottom = 1.595
-margin_left = 8.0
-margin_top = 18.0
-margin_right = 14.4
-margin_bottom = 18.2
+visible = false
+anchor_left = 1.275
+anchor_top = 1.6
+anchor_right = 3.425
+anchor_bottom = 2.05
+margin_left = -13.668
+margin_right = -36.716
 rect_min_size = Vector2( 0, 10 )
 custom_constants/separation = 0
 __meta__ = {
@@ -213,11 +213,10 @@ anims/Stop = SubResource( 4 )
 anims/Talk = SubResource( 5 )
 
 [node name="Tween" type="Tween" parent="UserInterface/DialogueBox"]
-
-[node name="SceneChanger" parent="." instance=ExtResource( 15 )]
 [connection signal="timeout" from="UserInterface/Timer" to="UserInterface/DialogueBox" method="_on_Timer_timeout"]
 [connection signal="scene_finished" from="UserInterface/DialogueBox" to="Car" method="_on_DialogueBox_scene_finished"]
 [connection signal="pressed" from="UserInterface/DialogueBox/Options/Option1" to="UserInterface/DialogueBox" method="_on_Option1_pressed"]
+[connection signal="focus_entered" from="UserInterface/DialogueBox/Options/Option1/Button" to="UserInterface/DialogueBox/Options/Option1" method="_on_Button_focus_entered"]
 [connection signal="pressed" from="UserInterface/DialogueBox/Options/Option1/Button" to="UserInterface/DialogueBox/Options/Option1" method="_on_Button_pressed"]
 [connection signal="pressed" from="UserInterface/DialogueBox/Options/Option2" to="UserInterface/DialogueBox" method="_on_Option2_pressed"]
 [connection signal="pressed" from="UserInterface/DialogueBox/Options/Option2/Button" to="UserInterface/DialogueBox/Options/Option2" method="_on_Button_pressed"]

@@ -1,6 +1,6 @@
 extends Control
 
-onready var driving = $Car/DrivingMusic
+#onready var driving = get_parent().get_parent().get_node("Car/DrivingMusic")
 onready var playerAnimation = $Player/AnimationPlayer
 onready var momAnimation = $Mom/AnimationPlayer
 
@@ -105,24 +105,24 @@ func load_dialogue():
 		if dialogue_index >= dialogue.size():
 			scene_finished = true
 			emit_signal("scene_finished")
-			driving.stop()
+			#driving.stop()
 		self.visible = false
 		playerAnimation.stop(true)
 		dialogue_index = 0
 		dialogue_completed = true
 
-func load_set_dialogue(dialogue):
+func load_set_dialogue(set_dialogue):
 	$RichTextLabel.visible = true
 	$Options.visible = false
 	dialogue_completed = false
 	finished = false
-	if(dialogue == "..."):
+	if(set_dialogue == "..."):
 		playerAnimation.play("Stop")
 		momAnimation.play("Stop")
 	else:
 		playerAnimation.play("Talk")
 		momAnimation.play("Talk")
-	$RichTextLabel.bbcode_text = dialogue
+	$RichTextLabel.bbcode_text = set_dialogue
 	$RichTextLabel.percent_visible = 0
 	$Tween.interpolate_property(
 		$RichTextLabel, "percent_visible", 0, 1, 1, 

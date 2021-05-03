@@ -3,9 +3,9 @@
 [ext_resource path="res://UI/Options.png" type="Texture" id=1]
 [ext_resource path="res://UI/RPGSystem.ttf" type="DynamicFontData" id=2]
 
-[sub_resource type="StyleBoxEmpty" id=2]
+[sub_resource type="StyleBoxEmpty" id=1]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 4
 extra_spacing_top = -5
 extra_spacing_bottom = -5
@@ -23,8 +23,8 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = 1.0
-custom_styles/focus = SubResource( 2 )
-custom_fonts/font = SubResource( 1 )
+custom_styles/focus = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "This is an option."
 flat = true
