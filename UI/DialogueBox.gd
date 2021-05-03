@@ -4,6 +4,8 @@ signal freeze_character
 signal dialogue_complete
 signal objects_interacted
 
+
+onready var BedroomMusic = $BedroomMusic
 onready var typing = $AudioStreamPlayer
 onready var animationPlayer = $AnimationPlayer
 
@@ -65,3 +67,8 @@ func _on_Player_interactable(is_interactable, interactable_area):
 		
 func _on_Door_can_go_to_school():
 	can_go_to_school = true
+	
+func _on_Button_pressed(scene_to_load):
+	SceneChanger.change_scene(scene_to_load)
+	if BedroomMusic.playing == true:
+		BedroomMusic.stop()

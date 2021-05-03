@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://School/Floor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ChemClass/classroomtile1.png" type="Texture" id=2]
@@ -14,6 +14,9 @@
 [ext_resource path="res://UI/RPGSystem.ttf" type="DynamicFontData" id=12]
 [ext_resource path="res://ChemClass/ChemDialogue.gd" type="Script" id=13]
 [ext_resource path="res://NPC/talksprite-teacher-Sheet.png" type="Texture" id=14]
+[ext_resource path="res://ChemClass/Chair.tscn" type="PackedScene" id=15]
+[ext_resource path="res://ChemClass/SideTable.tscn" type="PackedScene" id=16]
+[ext_resource path="res://ChemClass/FlippedSideTable.tscn" type="PackedScene" id=17]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7, 4 )
@@ -123,13 +126,13 @@ build_mode = 1
 polygon = PoolVector2Array( 0, -5, 2, -5, 2, 72, 126, 72, 126, -5, 2, -5, 2, -20, 128, -20, 128, 73, 128, 74, 0, 74 )
 
 [node name="Desk1" parent="." instance=ExtResource( 5 )]
-position = Vector2( 39, 14 )
+position = Vector2( 39, 17 )
 
 [node name="Desk2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 64, 14 )
+position = Vector2( 64, 17 )
 
 [node name="Desk3" parent="." instance=ExtResource( 5 )]
-position = Vector2( 78, 53 )
+position = Vector2( 78, 50 )
 
 [node name="Desk4" parent="." instance=ExtResource( 5 )]
 position = Vector2( 39, 34 )
@@ -141,10 +144,10 @@ position = Vector2( 64, 34 )
 position = Vector2( 89, 34 )
 
 [node name="Desk7" parent="." instance=ExtResource( 5 )]
-position = Vector2( 51, 53 )
+position = Vector2( 51, 50 )
 
 [node name="PlayerDesk" parent="." instance=ExtResource( 5 )]
-position = Vector2( 89, 14 )
+position = Vector2( 89, 17 )
 
 [node name="InteractableArea" type="Area2D" parent="PlayerDesk"]
 script = ExtResource( 8 )
@@ -250,6 +253,48 @@ anims/Talk = SubResource( 8 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="UserInterface/DialogueBox"]
 stream = ExtResource( 10 )
 volume_db = -10.0
+
+[node name="Chair" parent="." instance=ExtResource( 15 )]
+position = Vector2( 39, 18 )
+
+[node name="Chair2" parent="." instance=ExtResource( 15 )]
+position = Vector2( 64, 18 )
+
+[node name="Chair3" parent="." instance=ExtResource( 15 )]
+position = Vector2( 89, 18 )
+
+[node name="Chair4" parent="." instance=ExtResource( 15 )]
+position = Vector2( 39, 35 )
+
+[node name="Chair5" parent="." instance=ExtResource( 15 )]
+position = Vector2( 64, 35 )
+
+[node name="Chair6" parent="." instance=ExtResource( 15 )]
+position = Vector2( 90, 34 )
+
+[node name="Chair7" parent="." instance=ExtResource( 15 )]
+position = Vector2( 51, 52 )
+
+[node name="Chair8" parent="." instance=ExtResource( 15 )]
+position = Vector2( 78, 52 )
+
+[node name="SideTable" parent="." instance=ExtResource( 16 )]
+position = Vector2( 9, 13 )
+
+[node name="SideTable2" parent="." instance=ExtResource( 16 )]
+position = Vector2( 9, 29 )
+
+[node name="SideTable3" parent="." instance=ExtResource( 16 )]
+position = Vector2( 9, 46 )
+
+[node name="FlippedSideTable" parent="." instance=ExtResource( 17 )]
+position = Vector2( 119, 14 )
+
+[node name="FlippedSideTable2" parent="." instance=ExtResource( 17 )]
+position = Vector2( 119, 30 )
+
+[node name="FlippedSideTable3" parent="." instance=ExtResource( 17 )]
+position = Vector2( 119, 46 )
 [connection signal="interactable" from="Player" to="UserInterface/DialogueBox" method="_on_Player_interactable"]
 [connection signal="freeze_character" from="UserInterface/DialogueBox" to="Player" method="_on_DialogueBox_freeze_character"]
 [connection signal="tween_completed" from="UserInterface/DialogueBox/Tween" to="UserInterface/DialogueBox" method="_on_Tween_tween_completed"]

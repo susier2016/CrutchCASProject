@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Room/HomePitchedDown.wav" type="AudioStream" id=1]
 [ext_resource path="res://Room/Player.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Player/steps.wav" type="AudioStream" id=7]
 [ext_resource path="res://Room/Door.gd" type="Script" id=8]
 [ext_resource path="res://Room/finalrug.png" type="Texture" id=9]
+[ext_resource path="res://Autoloads/SceneChanger.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Room/Bed.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Room/TrophyCase.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Room/Door.tscn" type="PackedScene" id=14]
@@ -123,6 +124,8 @@ __meta__ = {
 
 [node name="DialogueBox" parent="UserInterface" instance=ExtResource( 6 )]
 visible = false
+
+[node name="SceneChanger" parent="." instance=ExtResource( 10 )]
 [connection signal="interactable" from="Player" to="UserInterface/DialogueBox" method="_on_Player_interactable"]
 [connection signal="can_go_to_school" from="Door" to="UserInterface/DialogueBox" method="_on_Door_can_go_to_school"]
 [connection signal="dialogue_complete" from="UserInterface/DialogueBox" to="Desk" method="_on_DialogueBox_dialogue_complete"]
