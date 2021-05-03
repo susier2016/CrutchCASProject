@@ -1,5 +1,6 @@
 extends Control
 
+onready var driving = $Car/DrivingMusic
 onready var playerAnimation = $Player/AnimationPlayer
 onready var momAnimation = $Mom/AnimationPlayer
 
@@ -104,6 +105,7 @@ func load_dialogue():
 		if dialogue_index >= dialogue.size():
 			scene_finished = true
 			emit_signal("scene_finished")
+			driving.stop()
 		self.visible = false
 		playerAnimation.stop(true)
 		dialogue_index = 0
