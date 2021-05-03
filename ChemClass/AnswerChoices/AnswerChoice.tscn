@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://UI/RPGSystem.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://ChemClass/AnswerChoices/Checked.png" type="Texture" id=3]
+[ext_resource path="res://ChemClass/AnswerChoices/Unchecked.png" type="Texture" id=4]
+[ext_resource path="res://ChemClass/AnswerChoices/AnswerChoice.gd" type="Script" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 5
+extra_spacing_char = 1
+font_data = ExtResource( 2 )
+
+[node name="AnswerChoice" type="NinePatchRect"]
+margin_right = 105.0
+margin_bottom = 25.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CheckBox" type="CheckBox" parent="."]
+margin_right = 114.0
+margin_bottom = 13.0
+focus_mode = 0
+custom_icons/radio_checked = ExtResource( 3 )
+custom_icons/checked = ExtResource( 3 )
+custom_icons/radio_unchecked = ExtResource( 4 )
+custom_icons/unchecked = ExtResource( 4 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/check_vadjust = -1
+enabled_focus_mode = 0
+text = "This is an option."
+__meta__ = {
+"_edit_use_anchors_": false
+}

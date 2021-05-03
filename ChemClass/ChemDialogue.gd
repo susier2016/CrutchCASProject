@@ -8,10 +8,8 @@ onready var playerAnimation = $Player/AnimationPlayer
 onready var teacherAnimation = $Teacher/AnimationPlayer
 
 var dialogue = [
-	"Player",
-		"Well, I guess it's time to get this quiz started.",
 	"Teacher",
-		"Okay, class. Everyone get your calculators out.",
+		"Okay, class. Everyone get your pencils and calculators out.",
 		"It's time for the quiz!"
 ]
 var dialogue_index = 0
@@ -19,7 +17,9 @@ var finished = true
 var dialogue_completed = true
 var interactable = false
 var interacted = false
-	
+
+signal scene_finished
+
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_interact") and interactable and finished:
 		self.visible = true
@@ -58,6 +58,11 @@ func load_dialogue():
 			$Tween.start()
 			dialogue_index += 1
 	else:
+		if dialogue_index >= dialogue.size():
+			emit_signal("scene_finished")
+			emit_signal("freeze_character", true)
+		else:
+			emit_signal("freeze_character", false)
 		self.visible = false
 		playerAnimation.stop(true)
 		teacherAnimation.stop(true)
@@ -66,11 +71,10 @@ func load_dialogue():
 		dialogue_index = 0
 		dialogue_completed = true
 		emit_signal("dialogue_complete", true)
-		emit_signal("freeze_character", false)
 
 func _on_Tween_tween_completed(_object, _key):
 	finished = true;
 	
-func _on_Player_interactable(is_interactable, interactable_area):
+func _on_Player_interactable(is_interactable, _interactable_area):
 	if dialogue_completed and is_interactable:
 		interactable = true
