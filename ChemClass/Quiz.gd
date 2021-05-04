@@ -6,7 +6,7 @@ signal quiz_finished
 
 func _process(_delta):
 	if can_start and rect_position.y >= -295:
-		rect_position.y -= 0.34
+		rect_position.y -= 0.45
 	if rect_position.y < -295:
 		emit_signal("quiz_finished")
 		
