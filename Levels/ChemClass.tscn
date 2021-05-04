@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://School/Floor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ChemClass/classroomtile1.png" type="Texture" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://ChemClass/AnswerChoices/AnswerChoice.tscn" type="PackedScene" id=19]
 [ext_resource path="res://ChemClass/Quiz.gd" type="Script" id=20]
 [ext_resource path="res://Autoloads/SceneChanger.tscn" type="PackedScene" id=21]
+[ext_resource path="res://ChemClass/Chemistry Quiz (Alarm Clock Ver).wav" type="AudioStream" id=22]
 
 [sub_resource type="TileSet" id=1]
 0/name = "classroomtile1.png 0"
@@ -637,9 +638,11 @@ anims/Talk = SubResource( 11 )
 
 [node name="Tween" type="Tween" parent="UserInterface/DialogueBox"]
 
+[node name="QuizMusic" type="AudioStreamPlayer" parent="UserInterface/DialogueBox"]
+stream = ExtResource( 22 )
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="UserInterface/DialogueBox"]
 stream = ExtResource( 10 )
-volume_db = -10.0
 [connection signal="interactable" from="Player" to="UserInterface/DialogueBox" method="_on_Player_interactable"]
 [connection signal="quiz_finished" from="UserInterface/Quiz" to="UserInterface/DialogueBox" method="_on_Quiz_quiz_finished"]
 [connection signal="freeze_character" from="UserInterface/DialogueBox" to="Player" method="_on_DialogueBox_freeze_character"]

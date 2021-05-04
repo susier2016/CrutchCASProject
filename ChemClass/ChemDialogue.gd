@@ -3,6 +3,7 @@ extends Control
 signal freeze_character
 signal dialogue_complete
 
+onready var quizMusic = get_node("QuizMusic")
 onready var typing = $AudioStreamPlayer
 onready var playerAnimation = $Player/AnimationPlayer
 onready var teacherAnimation = $Teacher/AnimationPlayer
@@ -12,6 +13,7 @@ var dialogue = [
 		"Okay, class. Everyone get your pencils and calculators out.",
 		"It's time for the quiz!"
 ]
+
 var dialogue_index = 0
 var finished = true
 var dialogue_completed = true
@@ -25,6 +27,8 @@ func _process(_delta):
 		self.visible = true
 		emit_signal("freeze_character", true)
 		load_dialogue()
+		if quizMusic.playing == false:
+			quizMusic.play()
 	
 func load_dialogue():
 	if dialogue.size() > 0 and dialogue_index < dialogue.size():

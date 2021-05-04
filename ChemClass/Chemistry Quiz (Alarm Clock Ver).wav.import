@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Chemistry Quiz (Alarm Clock Ver).wav-0c158f43070f4e706ca638d8b6d727f2.sample"
+
+[deps]
+
+source_file="res://ChemClass/Chemistry Quiz (Alarm Clock Ver).wav"
+dest_files=[ "res://.import/Chemistry Quiz (Alarm Clock Ver).wav-0c158f43070f4e706ca638d8b6d727f2.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
