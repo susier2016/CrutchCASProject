@@ -7,7 +7,7 @@ func _ready():
 		button.connect("pressed", self, "_on_Button_pressed", [button.scene_to_load])
 		titleMusic.play()
 
-func _on_Button_pressed(scene_to_load):
-	SceneChanger.change_scene(scene_to_load, "fade")
+func _on_Button_pressed(_scene_to_load):
+	SceneChanger.change_scene("res://Levels/Intro.tscn", "fade")
 	if titleMusic.playing == true:
 		titleMusic.stop()

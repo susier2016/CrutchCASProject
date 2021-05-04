@@ -48,7 +48,7 @@ var choice = 0
 var waiting_for_response
 var response = ""
 
-#signal scene_finished
+signal scene_finished
 
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_interact") and finished and !scene_finished and started and !waiting_for_response:
@@ -103,10 +103,7 @@ func load_dialogue():
 			dialogue_index += 1
 	else:
 		if dialogue_index >= dialogue.size():
-			SceneChanger.change_scene("res://Levels/School.tscn", "fade")
-#			scene_finished = true
-#			emit_signal("scene_finished")
-#			driving.stop()
+			emit_signal("scene_finished")
 		self.visible = false
 		playerAnimation.stop(true)
 		dialogue_index = 0

@@ -204,7 +204,7 @@ position = Vector2( 39, 19 )
 position = Vector2( 64, 19 )
 
 [node name="Chair3" parent="." instance=ExtResource( 15 )]
-position = Vector2( 89, 19 )
+position = Vector2( 89, 23 )
 
 [node name="Chair4" parent="." instance=ExtResource( 15 )]
 position = Vector2( 39, 36 )
@@ -650,7 +650,7 @@ stream = ExtResource( 22 )
 stream = ExtResource( 10 )
 
 [node name="IdleBoy" parent="." instance=ExtResource( 23 )]
-position = Vector2( 6, 20 )
+position = Vector2( 7, 21 )
 
 [node name="IdleBoyBlack" parent="." instance=ExtResource( 24 )]
 position = Vector2( 116, 22 )

@@ -15,6 +15,7 @@ func _process(_delta):
 	elif scene_complete and position.x < 175:
 		position.x += 0.75
 	elif position.x >= 175:
+		SceneChanger.change_scene("res://Levels/School.tscn", "fade")
 		driving.stop()
 		
 func _on_DialogueBox_scene_finished():

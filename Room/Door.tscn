@@ -7,7 +7,7 @@
 extents = Vector2( 1, 1 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 3, 9 )
+extents = Vector2( 3, 6 )
 
 [node name="Door" type="StaticBody2D"]
 position = Vector2( -2, -6 )
@@ -27,5 +27,5 @@ shape = SubResource( 1 )
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableArea"]
-position = Vector2( 2, 9 )
+position = Vector2( 2, 12 )
 shape = SubResource( 2 )

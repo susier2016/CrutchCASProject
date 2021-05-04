@@ -214,6 +214,7 @@ anims/Talk = SubResource( 5 )
 
 [node name="Tween" type="Tween" parent="UserInterface/DialogueBox"]
 [connection signal="timeout" from="UserInterface/Timer" to="UserInterface/DialogueBox" method="_on_Timer_timeout"]
+[connection signal="scene_finished" from="UserInterface/DialogueBox" to="Car" method="_on_DialogueBox_scene_finished"]
 [connection signal="pressed" from="UserInterface/DialogueBox/Options/Option1" to="UserInterface/DialogueBox" method="_on_Option1_pressed"]
 [connection signal="focus_entered" from="UserInterface/DialogueBox/Options/Option1/Button" to="UserInterface/DialogueBox/Options/Option1" method="_on_Button_focus_entered"]
 [connection signal="pressed" from="UserInterface/DialogueBox/Options/Option1/Button" to="UserInterface/DialogueBox/Options/Option1" method="_on_Button_pressed"]
