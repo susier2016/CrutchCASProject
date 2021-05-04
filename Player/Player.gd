@@ -8,9 +8,11 @@ var velocity = Vector2.ZERO
 var frozen = false
 var direction_vector
 
+
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var walking = $Walking
+onready var bedroomMusic = $BedroomMusic
 onready var animationState = animationTree.get("parameters/playback")
 export var interaction_parent : NodePath
 
@@ -28,7 +30,8 @@ func _physics_process(delta):
 			animationTree.set("parameters/Run/blend_position", input_vector)
 			animationState.travel("Run")
 			velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
-			direction_vector = input_vector * 10
+			if bedroomMusic.playing == false:
+				bedroomMusic.play()
 			if walking.playing == false:
 				walking.play()
 		else: 

@@ -45,14 +45,6 @@
 [node name="Bedroom" type="YSort"]
 position = Vector2( 30, 10 )
 
-[node name="BedroomMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 1 )
-volume_db = -17.0
-autoplay = true
-__meta__ = {
-"_editor_description_": "bedroom music"
-}
-
 [node name="Floor" type="Sprite" parent="."]
 position = Vector2( 48, 40 )
 scale = Vector2( 0.5, 0.5 )
@@ -96,6 +88,14 @@ smoothing_enabled = true
 [node name="Walking" type="AudioStreamPlayer" parent="Player"]
 stream = ExtResource( 7 )
 volume_db = -20.0
+
+[node name="BedroomMusic" type="AudioStreamPlayer" parent="Player"]
+stream = ExtResource( 1 )
+volume_db = -17.0
+autoplay = true
+__meta__ = {
+"_editor_description_": "bedroom music"
+}
 
 [node name="Desk" parent="." instance=ExtResource( 17 )]
 position = Vector2( 13, 55 )
