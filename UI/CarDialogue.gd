@@ -48,7 +48,7 @@ var choice = 0
 var waiting_for_response
 var response = ""
 
-signal scene_finished
+#signal scene_finished
 
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_interact") and finished and !scene_finished and started and !waiting_for_response:

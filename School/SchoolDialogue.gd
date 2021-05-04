@@ -118,22 +118,22 @@ func load_dialogue():
 func _on_Tween_tween_completed(_object, _key):
 	finished = true;
 	
-func _on_Player_interactable(is_interactable, interactable_area):
+func _on_Player_interactable(is_interactable, _interactable_area):
 	if dialogue_completed and is_interactable:
 		interactable = true
 		
-func load_set_dialogue(dialogue):
+func load_set_dialogue(set_dialogue):
 	$RichTextLabel.visible = true
 	$Options.visible = false
 	dialogue_completed = false
 	finished = false
-	if(dialogue == "..."):
+	if(set_dialogue == "..."):
 		playerAnimation.play("Stop")
 		friendAnimation.play("Stop")
 	else:
 		playerAnimation.play("Talk")
 		friendAnimation.play("Talk")
-	$RichTextLabel.bbcode_text = dialogue
+	$RichTextLabel.bbcode_text = set_dialogue
 	$RichTextLabel.percent_visible = 0
 	$Tween.interpolate_property(
 		$RichTextLabel, "percent_visible", 0, 1, 1, 
