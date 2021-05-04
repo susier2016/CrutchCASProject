@@ -1,6 +1,6 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
-[ext_resource path="res://Room/HomePitchedDown.wav" type="AudioStream" id=1]
+[ext_resource path="res://Room/Home (Midnight Mix.).wav" type="AudioStream" id=1]
 [ext_resource path="res://Room/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Room/Volleyball.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Room/walls.png" type="Texture" id=4]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Room/Door.gd" type="Script" id=8]
 [ext_resource path="res://Room/finalrug.png" type="Texture" id=9]
 [ext_resource path="res://Autoloads/SceneChanger.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Levels/Bedroom.gd" type="Script" id=11]
 [ext_resource path="res://Room/Bed.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Room/TrophyCase.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Room/Door.tscn" type="PackedScene" id=14]
@@ -44,9 +45,10 @@
 
 [node name="Bedroom" type="YSort"]
 position = Vector2( 30, 10 )
+script = ExtResource( 11 )
 
 [node name="Floor" type="Sprite" parent="."]
-position = Vector2( 48, 40 )
+position = Vector2( 48, 40.1041 )
 scale = Vector2( 0.5, 0.5 )
 z_index = -3
 texture = ExtResource( 5 )
@@ -89,14 +91,6 @@ smoothing_enabled = true
 stream = ExtResource( 7 )
 volume_db = -20.0
 
-[node name="BedroomMusic" type="AudioStreamPlayer" parent="Player"]
-stream = ExtResource( 1 )
-volume_db = -17.0
-autoplay = true
-__meta__ = {
-"_editor_description_": "bedroom music"
-}
-
 [node name="Desk" parent="." instance=ExtResource( 17 )]
 position = Vector2( 13, 55 )
 
@@ -128,6 +122,14 @@ script = ExtResource( 8 )
 visible = false
 margin_left = 51.0
 margin_right = 110.0
+
+[node name="BedroomMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+volume_db = -17.0
+autoplay = true
+__meta__ = {
+"_editor_description_": "bedroom music"
+}
 [connection signal="interactable" from="Player" to="UserInterface/DialogueBox" method="_on_Player_interactable"]
 [connection signal="can_go_to_school" from="Door" to="UserInterface/DialogueBox" method="_on_Door_can_go_to_school"]
 [connection signal="dialogue_complete" from="UserInterface/DialogueBox" to="Desk" method="_on_DialogueBox_dialogue_complete"]
