@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=2]
 
-[ext_resource path="res://Room/Home (Midnight Mix.).wav" type="AudioStream" id=1]
+[ext_resource path="res://Room/Home (Midnight Mix.) (1).wav" type="AudioStream" id=1]
 [ext_resource path="res://Room/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Room/Volleyball.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Room/walls.png" type="Texture" id=4]
