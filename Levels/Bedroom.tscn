@@ -133,3 +133,5 @@ margin_right = 110.0
 [connection signal="dialogue_complete" from="UserInterface/DialogueBox" to="Desk" method="_on_DialogueBox_dialogue_complete"]
 [connection signal="freeze_character" from="UserInterface/DialogueBox" to="Player" method="_on_DialogueBox_freeze_character"]
 [connection signal="objects_interacted" from="UserInterface/DialogueBox" to="Door" method="_on_DialogueBox_objects_interacted"]
+
+[editable path="Door"]

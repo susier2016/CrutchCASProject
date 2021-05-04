@@ -5,7 +5,7 @@ signal dialogue_complete
 signal objects_interacted
 
 
-onready var BedroomMusic = get_parent().get_parent().get_node("BedroomMusic")
+onready var bedroom_music = get_parent().get_parent().get_node("BedroomMusic")
 onready var typing = $AudioStreamPlayer
 onready var animationPlayer = $AnimationPlayer
 
@@ -18,7 +18,7 @@ var interacted = false
 var objects_interacted = []
 var current_area = null
 var can_go_to_school = false
-	
+
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_interact") and interactable and finished:
 		if !objects_interacted.has(current_area.get_parent().get_name()):
@@ -49,6 +49,8 @@ func load_dialogue():
 	else:
 		self.visible = false
 		animationPlayer.stop(true)
+		if current_area.get_parent().get_name() == "Door" and can_go_to_school:
+			SceneChanger.change_scene("res://Levels/Driving.tscn", "fade")
 		typing.stop()
 		interacted = false
 		dialogue_index = 0
@@ -67,8 +69,3 @@ func _on_Player_interactable(is_interactable, interactable_area):
 		
 func _on_Door_can_go_to_school():
 	can_go_to_school = true
-	
-#func _on_Button_pressed(scene_to_load):
-#	SceneChanger.change_scene(scene_to_load)
-#	if BedroomMusic.playing == true:
-#		BedroomMusic.stop()

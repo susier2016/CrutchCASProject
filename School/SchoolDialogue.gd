@@ -102,8 +102,9 @@ func load_dialogue():
 			dialogue_index += 1
 	else:
 		if dialogue_index >= dialogue.size():
-			scene_finished = true
-			emit_signal("scene_finished")
+			SceneChanger.change_scene("res://Levels/ChemClass.tscn", "fade")
+#			scene_finished = true
+#			emit_signal("scene_finished")
 		self.visible = false
 		playerAnimation.stop(true)
 		friendAnimation.stop(true)

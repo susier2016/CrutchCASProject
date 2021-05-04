@@ -103,9 +103,10 @@ func load_dialogue():
 			dialogue_index += 1
 	else:
 		if dialogue_index >= dialogue.size():
-			scene_finished = true
-			emit_signal("scene_finished")
-			#driving.stop()
+			SceneChanger.change_scene("res://Levels/School.tscn", "fade")
+#			scene_finished = true
+#			emit_signal("scene_finished")
+#			driving.stop()
 		self.visible = false
 		playerAnimation.stop(true)
 		dialogue_index = 0

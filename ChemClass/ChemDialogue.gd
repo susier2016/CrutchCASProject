@@ -72,9 +72,33 @@ func load_dialogue():
 		dialogue_completed = true
 		emit_signal("dialogue_complete", true)
 
+func load_set_dialogue(set_dialogue):
+	self.visible = true
+	$Teacher.visible = false
+	$Player.visible = true
+	$RichTextLabel.visible = true
+	dialogue_completed = false
+	finished = false
+	if(set_dialogue == "..."):
+		playerAnimation.play("Stop")
+	else:
+		playerAnimation.play("Talk")
+	$RichTextLabel.bbcode_text = set_dialogue
+	$RichTextLabel.percent_visible = 0
+	$Tween.interpolate_property(
+		$RichTextLabel, "percent_visible", 0, 1, 1, 
+		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT
+	)
+	$Tween.start()
+
 func _on_Tween_tween_completed(_object, _key):
 	finished = true;
 	
 func _on_Player_interactable(is_interactable, _interactable_area):
 	if dialogue_completed and is_interactable:
 		interactable = true
+
+func _on_Quiz_quiz_finished():
+	#load_set_dialogue("God...I totally bombed that quiz.")
+	#yield($Tween, "tween_completed")
+	SceneChanger.change_scene("res://Levels/ToBeContinued.tscn", "fade")

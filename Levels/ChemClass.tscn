@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://School/Floor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ChemClass/classroomtile1.png" type="Texture" id=2]
@@ -20,9 +20,9 @@
 [ext_resource path="res://ChemClass/Quiz.png" type="Texture" id=18]
 [ext_resource path="res://ChemClass/AnswerChoices/AnswerChoice.tscn" type="PackedScene" id=19]
 [ext_resource path="res://ChemClass/Quiz.gd" type="Script" id=20]
+[ext_resource path="res://Autoloads/SceneChanger.tscn" type="PackedScene" id=21]
 
-
-[sub_resource type="TileSet" id=9]
+[sub_resource type="TileSet" id=1]
 0/name = "classroomtile1.png 0"
 0/texture = ExtResource( 2 )
 0/tex_offset = Vector2( 0, 0 )
@@ -47,33 +47,32 @@
 0/shapes = [  ]
 0/z_index = 0
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 7, 4 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 9.67742, 4.4 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 4, 7.5 )
 
-[sub_resource type="DynamicFont" id=10]
+[sub_resource type="DynamicFont" id=5]
 size = 10
 extra_spacing_char = 1
 font_data = ExtResource( 12 )
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=6]
 size = 5
 extra_spacing_char = 1
 font_data = ExtResource( 12 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=7]
 size = 5
 outline_color = Color( 0, 0, 0, 1 )
 extra_spacing_char = 1
 font_data = ExtResource( 12 )
 
-[sub_resource type="Animation" id=5]
-resource_name = "Stop"
+[sub_resource type="Animation" id=8]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -88,7 +87,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=9]
 length = 1.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -103,8 +102,7 @@ tracks/0/keys = {
 "values": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0 ]
 }
 
-[sub_resource type="Animation" id=7]
-resource_name = "Stop"
+[sub_resource type="Animation" id=10]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -119,8 +117,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=8]
-resource_name = "Talk"
+[sub_resource type="Animation" id=11]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -139,7 +136,7 @@ tracks/0/keys = {
 [node name="Floor" type="TileMap" parent="."]
 position = Vector2( 32, 42 )
 z_index = -5
-tile_set = SubResource( 9 )
+tile_set = SubResource( 1 )
 cell_size = Vector2( 32, 32 )
 format = 1
 tile_data = PoolIntArray( -65537, 0, 0, -131072, 0, 0, -131071, 0, 0, -131070, 0, 0, -1, 0, 0, -65536, 0, 65537, -65535, 0, 1, -65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0 )
@@ -161,7 +158,7 @@ region_rect = Rect2( 39, 22, 369, 254 )
 position = Vector2( 85, -3 )
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 11, 68 )
+position = Vector2( 15, 68 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
@@ -222,19 +219,19 @@ position = Vector2( 78, 52 )
 position = Vector2( 9, 13 )
 
 [node name="SideTable2" parent="." instance=ExtResource( 16 )]
-position = Vector2( 9, 29 )
+position = Vector2( 9, 30 )
 
 [node name="SideTable3" parent="." instance=ExtResource( 16 )]
 position = Vector2( 9, 46 )
 
 [node name="FlippedSideTable" parent="." instance=ExtResource( 17 )]
-position = Vector2( 119, 14 )
+position = Vector2( 118, 13 )
 
 [node name="FlippedSideTable2" parent="." instance=ExtResource( 17 )]
-position = Vector2( 119, 30 )
+position = Vector2( 118, 30 )
 
 [node name="FlippedSideTable3" parent="." instance=ExtResource( 17 )]
-position = Vector2( 119, 46 )
+position = Vector2( 118, 46 )
 
 [node name="PlayerDesk" parent="." instance=ExtResource( 5 )]
 position = Vector2( 89, 17 )
@@ -244,7 +241,7 @@ script = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDesk/InteractableArea"]
 position = Vector2( 0, 6 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Whiteboard" type="StaticBody2D" parent="."]
 position = Vector2( 56, -14 )
@@ -252,7 +249,7 @@ position = Vector2( 56, -14 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Whiteboard"]
 position = Vector2( 6, 0 )
 scale = Vector2( 1.55, 1.13636 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="Whiteboard"]
 position = Vector2( 6, 0 )
@@ -273,15 +270,17 @@ offset = Vector2( 0.5, 0 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TeacherDesk"]
 position = Vector2( -0.5, 0.5 )
 rotation = 1.5708
-shape = SubResource( 3 )
+shape = SubResource( 4 )
+
+[node name="SceneChanger" parent="." instance=ExtResource( 21 )]
 
 [node name="UserInterface" type="CanvasLayer" parent="."]
 
 [node name="Quiz" type="TextureRect" parent="UserInterface"]
 margin_left = 16.0
-margin_top = 120.0
+margin_top = 95.0
 margin_right = 144.0
-margin_bottom = 364.0
+margin_bottom = 388.0
 texture = ExtResource( 18 )
 expand = true
 script = ExtResource( 20 )
@@ -293,7 +292,7 @@ __meta__ = {
 margin_top = 7.0
 margin_right = 128.0
 margin_bottom = 18.0
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Quiz"
 align = 1
@@ -306,7 +305,7 @@ margin_left = 9.0
 margin_top = 20.0
 margin_right = 120.0
 margin_bottom = 37.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "1. Beer's law describes the ___, ___ between absorption and concentration."
 autowrap = true
@@ -361,7 +360,7 @@ margin_left = 9.0
 margin_top = 68.0
 margin_right = 120.0
 margin_bottom = 105.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "2. The wavelength of the bright yellow-orange flame test color of sodium is 590 nm. Calculate the average energy associated with this atomic emission line."
 autowrap = true
@@ -416,7 +415,7 @@ margin_left = 9.0
 margin_top = 139.0
 margin_right = 120.0
 margin_bottom = 176.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "3. Calculate the ???????? of a ?mL solution of ???M ?????? acid diluted to ??mL."
 autowrap = true
@@ -471,9 +470,9 @@ margin_left = 9.0
 margin_top = 194.0
 margin_right = 120.0
 margin_bottom = 209.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "4. ???? ??? ?? ???? ??? ????? ??? ?? ?????? ??? ???? ??????? ?? ????"
+text = "4. Calculate ??? ?? ?? ????? ?? in ??? ?????? ??? ?? ?? solution ???"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -521,6 +520,61 @@ margin_bottom = 21.0
 [node name="CheckBox" parent="UserInterface/Quiz/Answers4/AnswerChoice4" index="0"]
 text = "D. AGAIN"
 
+[node name="Question5" type="Label" parent="UserInterface/Quiz"]
+margin_left = 9.0
+margin_top = 241.0
+margin_right = 120.0
+margin_bottom = 256.0
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "5. ???? ??? ?? ???? ??? ????? ??? ?? ?????? ??? ???? ??????? ?? ????"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Answers5" type="VBoxContainer" parent="UserInterface/Quiz"]
+margin_left = 5.0
+margin_top = 253.0
+margin_right = 45.0
+margin_bottom = 293.0
+custom_constants/separation = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnswerChoice" parent="UserInterface/Quiz/Answers5" instance=ExtResource( 19 )]
+margin_right = 40.0
+margin_bottom = 0.0
+
+[node name="CheckBox" parent="UserInterface/Quiz/Answers5/AnswerChoice" index="0"]
+margin_right = 222.0
+text = "A. ?????"
+
+[node name="AnswerChoice2" parent="UserInterface/Quiz/Answers5" instance=ExtResource( 19 )]
+margin_top = 7.0
+margin_right = 40.0
+margin_bottom = 7.0
+
+[node name="CheckBox" parent="UserInterface/Quiz/Answers5/AnswerChoice2" index="0"]
+text = "B. ?????"
+
+[node name="AnswerChoice3" parent="UserInterface/Quiz/Answers5" instance=ExtResource( 19 )]
+margin_top = 14.0
+margin_right = 40.0
+margin_bottom = 14.0
+
+[node name="CheckBox" parent="UserInterface/Quiz/Answers5/AnswerChoice3" index="0"]
+text = "C. ?????"
+
+[node name="AnswerChoice4" parent="UserInterface/Quiz/Answers5" instance=ExtResource( 19 )]
+margin_top = 21.0
+margin_right = 40.0
+margin_bottom = 21.0
+
+[node name="CheckBox" parent="UserInterface/Quiz/Answers5/AnswerChoice4" index="0"]
+text = "D. ?????"
+
 [node name="DialogueBox" type="Control" parent="UserInterface"]
 visible = false
 margin_left = 51.0
@@ -553,7 +607,7 @@ margin_left = -66.9
 margin_top = -19.6
 margin_right = -121.075
 margin_bottom = -9.0
-custom_fonts/normal_font = SubResource( 4 )
+custom_fonts/normal_font = SubResource( 7 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -565,11 +619,10 @@ scale = Vector2( 0.296875, 0.296875 )
 texture = ExtResource( 9 )
 offset = Vector2( 0, 1 )
 hframes = 11
-frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UserInterface/DialogueBox/Player"]
-anims/Stop = SubResource( 5 )
-anims/Talk = SubResource( 6 )
+anims/Stop = SubResource( 8 )
+anims/Talk = SubResource( 9 )
 
 [node name="Teacher" type="Sprite" parent="UserInterface/DialogueBox"]
 visible = false
@@ -579,8 +632,8 @@ texture = ExtResource( 14 )
 hframes = 7
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UserInterface/DialogueBox/Teacher"]
-anims/Stop = SubResource( 7 )
-anims/Talk = SubResource( 8 )
+anims/Stop = SubResource( 10 )
+anims/Talk = SubResource( 11 )
 
 [node name="Tween" type="Tween" parent="UserInterface/DialogueBox"]
 
@@ -588,6 +641,7 @@ anims/Talk = SubResource( 8 )
 stream = ExtResource( 10 )
 volume_db = -10.0
 [connection signal="interactable" from="Player" to="UserInterface/DialogueBox" method="_on_Player_interactable"]
+[connection signal="quiz_finished" from="UserInterface/Quiz" to="UserInterface/DialogueBox" method="_on_Quiz_quiz_finished"]
 [connection signal="freeze_character" from="UserInterface/DialogueBox" to="Player" method="_on_DialogueBox_freeze_character"]
 [connection signal="scene_finished" from="UserInterface/DialogueBox" to="UserInterface/Quiz" method="_on_DialogueBox_scene_finished"]
 [connection signal="tween_completed" from="UserInterface/DialogueBox/Tween" to="UserInterface/DialogueBox" method="_on_Tween_tween_completed"]
@@ -623,3 +677,11 @@ volume_db = -10.0
 [editable path="UserInterface/Quiz/Answers4/AnswerChoice3"]
 
 [editable path="UserInterface/Quiz/Answers4/AnswerChoice4"]
+
+[editable path="UserInterface/Quiz/Answers5/AnswerChoice"]
+
+[editable path="UserInterface/Quiz/Answers5/AnswerChoice2"]
+
+[editable path="UserInterface/Quiz/Answers5/AnswerChoice3"]
+
+[editable path="UserInterface/Quiz/Answers5/AnswerChoice4"]
