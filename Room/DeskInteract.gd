@@ -13,8 +13,6 @@ func _process(_delta):
 		else:
 			animationPlayer.play("LightOn")
 		
-			
-
 func interact():
 	if(!interacted):
 		return ["Oh, ****!", "That's what I forgot. The chemistry quiz.", "I've just been...getting so far behind in all of my classes...", "It's just so hard to focus."]

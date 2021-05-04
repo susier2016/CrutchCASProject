@@ -1,17 +1,12 @@
 extends CanvasLayer
 
-
-signal scene_changed()
 onready var animation_player = $AnimationPlayer
 onready var black = $Control/FadeToBlack
+var scene
 
-
-func change_scene(path, delay = 0.5):
-	$Control/FadeToBlack.show()
-	yield(get_tree().create_timer(delay), "timeout")
-	animation_player.play("fade-in")
-	yield(animation_player, "animation_finished")
-	var _k = get_tree().change_scene(path)
-	animation_player.play("fade-out")
-	$Control/FadeToBlack.hide()
-	emit_signal("scene_changed")
+func change_scene(new_scene, anim):
+	scene = new_scene
+	animation_player.play(anim)
+	
+func _new_scene():
+	var _y = get_tree().change_scene(scene)

@@ -45,6 +45,14 @@
 [node name="Bedroom" type="YSort"]
 position = Vector2( 30, 10 )
 
+[node name="BedroomMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+volume_db = -17.0
+autoplay = true
+__meta__ = {
+"_editor_description_": "bedroom music"
+}
+
 [node name="Floor" type="Sprite" parent="."]
 position = Vector2( 48, 40 )
 scale = Vector2( 0.5, 0.5 )
@@ -112,20 +120,14 @@ z_index = -1
 position = Vector2( 91, 28 )
 script = ExtResource( 8 )
 
-[node name="BedroomMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 1 )
-volume_db = -17.0
-autoplay = true
-__meta__ = {
-"_editor_description_": "bedroom music"
-}
+[node name="SceneChanger" parent="." instance=ExtResource( 10 )]
 
 [node name="UserInterface" type="CanvasLayer" parent="."]
 
 [node name="DialogueBox" parent="UserInterface" instance=ExtResource( 6 )]
 visible = false
-
-[node name="SceneChanger" parent="." instance=ExtResource( 10 )]
+margin_left = 51.0
+margin_right = 110.0
 [connection signal="interactable" from="Player" to="UserInterface/DialogueBox" method="_on_Player_interactable"]
 [connection signal="can_go_to_school" from="Door" to="UserInterface/DialogueBox" method="_on_Door_can_go_to_school"]
 [connection signal="dialogue_complete" from="UserInterface/DialogueBox" to="Desk" method="_on_DialogueBox_dialogue_complete"]
