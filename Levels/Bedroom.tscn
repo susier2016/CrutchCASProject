@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Room/Home (Midnight Mix.).wav" type="AudioStream" id=1]
 [ext_resource path="res://Room/Player.tscn" type="PackedScene" id=2]
@@ -10,7 +10,6 @@
 [ext_resource path="res://Room/Door.gd" type="Script" id=8]
 [ext_resource path="res://Room/finalrug.png" type="Texture" id=9]
 [ext_resource path="res://Autoloads/SceneChanger.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Levels/Bedroom.gd" type="Script" id=11]
 [ext_resource path="res://Room/Bed.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Room/TrophyCase.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Room/Door.tscn" type="PackedScene" id=14]
@@ -45,7 +44,6 @@
 
 [node name="Bedroom" type="YSort"]
 position = Vector2( 30, 10 )
-script = ExtResource( 11 )
 
 [node name="Floor" type="Sprite" parent="."]
 position = Vector2( 48, 40.1041 )
