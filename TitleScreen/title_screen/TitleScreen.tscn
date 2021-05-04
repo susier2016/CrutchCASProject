@@ -50,12 +50,12 @@ uppercase = true
 [node name="CenterRow" type="HBoxContainer" parent="Menu"]
 margin_top = 27.0
 margin_right = 150.0
-margin_bottom = 60.0
+margin_bottom = 73.0
 size_flags_vertical = 3
 
 [node name="Buttons" type="VBoxContainer" parent="Menu/CenterRow"]
 margin_right = 150.0
-margin_bottom = 33.0
+margin_bottom = 46.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = SubResource( 2 )
@@ -71,15 +71,6 @@ size_flags_vertical = 1
 custom_styles/focus = SubResource( 3 )
 scene_to_load = "res://Levels/Bedroom.tscn"
 
-[node name="DevNotes" type="Label" parent="Menu"]
-margin_top = 60.0
-margin_right = 150.0
-margin_bottom = 73.0
-custom_fonts/font = SubResource( 4 )
-text = "WASD + Arrows to move, 
-E to interact"
-align = 2
-
 [node name="SceneChanger" parent="." instance=ExtResource( 8 )]
 
 [node name="TitleMusic" type="AudioStreamPlayer" parent="."]
@@ -87,13 +78,26 @@ stream = ExtResource( 4 )
 volume_db = -17.0
 
 [node name="DevNotes2" type="Label" parent="."]
-margin_left = 5.0
-margin_top = 72.0
-margin_right = 155.0
-margin_bottom = 85.0
+margin_left = 4.0
+margin_top = 74.0
+margin_right = 154.0
+margin_bottom = 87.0
 custom_fonts/font = SubResource( 4 )
 text = "Created by 6R2T
 Demo Build"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DevNotes" type="Label" parent="."]
+margin_left = 4.0
+margin_top = 74.0
+margin_right = 154.0
+margin_bottom = 87.0
+custom_fonts/font = SubResource( 4 )
+text = "WASD or Arrow Keys to Move
+E or Enter to Interact"
+align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
